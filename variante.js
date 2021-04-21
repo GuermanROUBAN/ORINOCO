@@ -28,6 +28,9 @@ const showArticles = async() => {
 						<p class="article-description">${index.description}</p>
 						<p class="article-price">${index.price}</p>
 						<img class="article-img" src="${index.imageUrl}" />
+						<div>
+						<button id="btnShowArt">Voir le produit</button>
+						</div>
 					</li>
 				`
 			)).join('')//pour eviter les virgules

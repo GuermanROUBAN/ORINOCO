@@ -10,6 +10,11 @@ nav{
 }
 
 footer{
-	background:deeppink;
+	background:darkred;
 	margin-left: 20px;
+}
+
+li h3{	
+	color:red;
+	font-weight: 900;
 }
