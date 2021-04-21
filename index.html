@@ -1,19 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+<!--parentElement-->
 
 <head>
+	<!--previousElementSibling-->
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Orinoco</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/index.css">
-	<script src="index.js"></script>
-
+	<script src="variante.js" defer></script>
+	<!--<script src="index.js" defer></script>-->
+	<!--<script src="fonctions/fon_navigationDom.js" defer></script>-->
+	<!--<script src="tests.js" defer></script>-->
+	<!--<script src="objet.js" defer></script>-->
 </head>
 
 <body>
 	<div class="main__container">
+		<!--firstElementChild-->
 		<header>
 			<a href="#"><img class="logo" src="#" alt="Orinoco"></a>
 			<nav class="nav__header">
@@ -24,22 +30,33 @@
 				</ul>
 			</nav>
 		</header>
-		<h1>Liste des produits</h1>
-		<section class="main">
+
+		<section class="main" id="main">
+			<h1>Liste des produits</h1>
+
+
+			<ul id="results"></ul>
+
+			
 			<!--ne s'affiche plus dans le HTML-->
-			<template id="templateArticle"> 
+			<!--
+			<template id="templateArticle">
 				<article class="box__produit">
-					<h2 id="name" class="produit__name">Nom:</h2>
-					<p id="colors" class="produit__colors">Couleurs:</p>
-					<p id="description" class="produit__description">Description:</p>
-					<p id="price" class="produit__price">Prix:</p>
-					<p id="_id" class="produit__identification">Prix:</p>
-					<img id="imageUrl" class="produit__image">Image</img>
+					<h2 id="name" class="produit__name"></h2>
+					<p id="description" class="produit__description"></p>
+					<p id="price" class="produit__price"></p>
+					<img id="imageUrl" src="" class="produit__image"></img>
 				</article>
+				<button id="btn">VOIR</button>
 			</template>
+			-->
 		</section>
-		<footer></footer>
+		<footer>
+			<h2>Tous droits réservés</h2>
+		</footer>
 	</div>
+
 </body>
+<!--nextElementSibiling (null)-->
 
 </html>

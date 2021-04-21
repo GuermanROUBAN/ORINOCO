@@ -1,9 +1,15 @@
 .main{
-	background:blueviolet;
-	color: #fff;
+	background:darkseagreen;
+	
 	margin-left: 20px;
 }
 
 nav{
-	background:chartreuse;
+	background:darkorange;
+	margin-left: 20px;
+}
+
+footer{
+	background:deeppink;
+	margin-left: 20px;
 }
