@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Panier</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/panier.css">
+	<script src="variante.js" defer></script>
+	<!--<script src="index.js" defer></script>-->
+	<!--<script src="fonctions/fon_navigationDom.js" defer></script>-->
+	<!--<script src="tests.js" defer></script>-->
+	<!--<script src="objet.js" defer></script>-->
+</head>
+<a href="#"><img class="logo" src="#" alt="Orinoco"></a>
+<nav class="nav__header">
+	<ul>
+		<li>Acceuil</li>
+		<li>Produit</li>
+	</ul>
+</nav>
+
+<body>
+	<section class="main" id="main">
+		<h1>Votre commande</h1>
+		<div id="panier">
+			<h2>Panier</h2>
+			<div id="panier_index" class="panier_index">
+				<h3>Produit</h3>
+				<h3>Quantité</h3>
+				<h3>Prix</h3>
+				<h3>Total</h3>
+			</div>
+			<div id="panier_field" class="panier_field">
+				<h3 id="produit__name">Produit</h3>
+				<h3 id="produit__quantity">Quantité</h3>
+				<h3 id="produit__price">Prix</h3>
+				<h3 id="produit__sum">Total</h3>
+			</div>
+		</div>
+		<div id="vos coordonnees" class="coordonnees">
+			<form action="#" methode="post" enctype="multipart/form-data">
+				<fieldset>
+					<legend>Merci de bien vouloir remplir notre formulaire</legend>
+					<div class="form-group">
+						<label for="name">Nom</label> <abbr title="Merci de saisir ici votre nom">*</abbr>
+						<input type="text" id="name" name="user_name" value="" class="form-control" required>
+					</div>
+
+					<div class="form-group">
+						<label for="prénom">Prénom</label> <abbr title="Merci de saisir ici votre prénom">*</abbr>
+						<input type="text" id="firstName" name="user_fisrtName" class="form-control" required>
+					</div>
+
+					<div class="form-group">
+						<label for="email">Votre adresse e-mail</label>
+						<abbr title="ex: utilisateur@internet.com">*</abbr>
+						<input type="email" id="email" name="user_email" class="form-control" required />
+					</div>
+
+					<div class="form-group">
+						<label for="téléphone">Votre adresse numéro de téléphone</label>
+						<abbr title="ex: utilisateur@internet.com">*</abbr>
+						<input type="tel" id="phone" name="user_phone" class="form-control" required />
+					</div>
+
+					<div class="form-group">
+						<label for="address">Adresse</label> <abbr title="Merci de saisir ici votre adresse">*</abbr>
+						<input type="text" id="address" name="user_address" class="form-control" required>
+					</div>
+
+					<div class="form-group">
+						<label for="address_index">Code postal</label> <abbr
+							title="Merci de saisir ici votre code postal">*</abbr>
+						<input type="tel" id="address_index" name="user_address_index" class="form-control" required>
+					</div>
+
+					<div class="form-group">
+						<label for="address_pays">Pays</label> <abbr title="Merci de saisir ici votre pays">*</abbr>
+						<input type="tel" id="address_country" name="user_address_country" class="form-control" required>
+					</div>
+
+					<div class="form-group">
+						<label for="comments">Commentaires</label><abbr title="Ajoutez un commentaire">*</abbr>
+						<textarea id="comments" name="user_comments" class="form-control" rows="4" cols="50"
+							required></textarea>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</section>
+	<footer>
+		<h2>Tous droits réservés</h2>
+	</footer>
+</body>
+
+</html>

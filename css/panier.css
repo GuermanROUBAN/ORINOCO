@@ -1,0 +1,11 @@
+.panier_index, .panier_field{
+	background: chartreuse;
+	display:flex;
+	flex-direction: row;
+	width: auto;
+	justify-content: space-around;
+}
+
+.panier_field{
+	background:royalblue;
+}
