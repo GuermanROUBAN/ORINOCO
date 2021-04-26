@@ -1,0 +1,23 @@
+
+form{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	justify-content: center;
+	background: ($colour-header1);
+}
+
+form ::placeholder{
+	color:black;
+	font-weight: 600;
+	font-size: 1.5rem;
+}
+
+input{
+	width:50%;
+	height: 50px;
+	border: none;
+	text-align: center;
+	background: ($colour-header1);
+
+}

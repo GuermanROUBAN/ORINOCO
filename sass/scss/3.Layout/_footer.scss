@@ -1,0 +1,41 @@
+footer{
+	width: 100%;
+	min-height:195px;
+	font-size: 14px;
+	background-color:($colour-footer);
+	color:#fff;
+}
+
+.footer__body{
+	display:flex;
+	flex-direction: column;
+	margin-left: 20px;
+}
+
+.footer__body{
+	p{line-height: 1.8;}
+	a{line-height: 1.8;}
+}
+
+.footer__body h1{
+	font-size: 1.8rem;
+	margin: 25px 0px;
+}
+
+.body__row{
+	display: flex;
+	align-items: center;
+	p{
+		line-height: 1.8;
+	}
+	
+	i{
+	width: 8%;
+	font-size: 80%;
+	}
+}
+
+.link{
+	text-decoration: none;
+	color:#fff;
+}

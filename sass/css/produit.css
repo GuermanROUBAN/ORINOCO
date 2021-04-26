@@ -271,13 +271,4 @@ button--full-width {
   margin-left: 20px;
 }
 
-nav ul {
-  background: darkorange;
-  margin-left: 20px;
-  display: flex;
-  flex-direction: row;
-  width: auto;
-  justify-content: space-around;
-}
-
-/*# sourceMappingURL=panier.css.map */
+/*# sourceMappingURL=produit.css.map */
