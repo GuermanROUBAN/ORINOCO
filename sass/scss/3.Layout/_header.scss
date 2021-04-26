@@ -2,7 +2,7 @@ header{
 	display:flex;
 	justify-content: center;
 	width:100%;
-	height: 65px;
+
 	align-items: center;
 	position: relative;
 	a{
@@ -13,22 +13,14 @@ header{
 	{ 
 	 color :black
 	}
-
-	i {font-size: 1.8rem;
-		position:absolute;
-		left:5%;}
 }
 header img{
 
 	display:flex;
+
 	
 }
 nav ul{
 	background:darkorange;
-	margin-left: 20px;
-    display:flex;
-	flex-direction: row;
-	width: auto;
-	justify-content: space-around;
 }
 

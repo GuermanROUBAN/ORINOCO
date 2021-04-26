@@ -86,6 +86,8 @@ body {
 
 h1 {
   font-family: "Shrikhand", sans-serif;
+  color: #FF79DA;
+  font-size: 3rem;
 }
 
 textarea {
@@ -107,7 +109,6 @@ header {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 65px;
   align-items: center;
   position: relative;
 }
@@ -118,11 +119,6 @@ header a {
 header a:visited {
   color: black;
 }
-header i {
-  font-size: 1.8rem;
-  position: absolute;
-  left: 5%;
-}
 
 header img {
   display: flex;
@@ -130,11 +126,52 @@ header img {
 
 nav ul {
   background: darkorange;
-  margin-left: 20px;
+}
+
+.article-item {
+  border: solid;
+  background: seagreen;
+  border-radius: 25px;
+  width: 80%;
+  margin: auto;
+}
+.article-item img {
   display: flex;
-  flex-direction: row;
-  width: auto;
-  justify-content: space-around;
+  margin: auto;
+  width: 95%;
+  border-radius: 25px;
+  object-fit: cover;
+}
+.article-item h3, .article-item p {
+  color: #FF79DA;
+  display: flex;
+  justify-content: center;
+}
+.article-item .article-description {
+  text-align: center;
+}
+.article-item .btnShowArt {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+button {
+  box-shadow: grey 3px 3px 10px;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  padding: 2.4rem;
+  color: #fff;
+  background: linear-gradient(180deg, #FF79DA, #FF79DA 10%, #9356DC);
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.8;
+  box-shadow: black 3px 3px 10px;
+}
+button--full-width {
+  width: 100%;
+  margin: 0 auto;
 }
 
 /*# sourceMappingURL=produit.css.map */

@@ -1,0 +1,29 @@
+.article-item{
+	border:solid;
+	background: seagreen;
+	border-radius: 25px;
+	width:80%;
+	margin:auto;
+	img{
+	display:flex;
+	margin: auto;
+	width:95%;
+	border-radius: 25px;
+	object-fit: cover;
+	}
+	h3, p{
+		color:($colour-secondary);
+		display: flex;
+		justify-content:center;
+	}
+
+	.article-description{
+		
+		text-align: center;
+	}
+	.btnShowArt{
+		display:flex;
+		justify-content: center;
+		margin:auto;
+	}
+}

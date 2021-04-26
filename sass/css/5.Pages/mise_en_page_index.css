@@ -1,3 +1,11 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
+.article-item {
+  margin-bottom: 20px;
+}
 
 /*# sourceMappingURL=mise_en_page_index.css.map */

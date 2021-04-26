@@ -23,14 +23,20 @@ const showArticles = async() => {
 			.map(teddy => (
 				// pour écrire du HTML dans JS
 				`
-					<div class="article-item">	
+					<div class="article-item">
+						</br></br>
 						<h3 class="article-name">${teddy.name}</h3>
+						</br></br>
 						<p class="article-description">${teddy.description}</p>
+						</br></br>
 						<p class="article-price">${teddy.price}</p>
+						</br></br>
 						<img class="article-img" src="${teddy.imageUrl}" />
+						</br></br>					
 						<div>
-						<button id="btnShowArt">Voir le produit</button>
+						<button id="btnShowArt" class="btnShowArt">Voir le produit</button>
 						</div>
+						</br></br>
 					</div>
 				`
 			)).join('')//pour eviter les virgules
