@@ -1,11 +1,11 @@
 
 const results = document.getElementById('results');
 
-let index;
+let teddies;
 
 // ETAPE 1 - API REQUEST
 const fetchApi = async () => {
-	index = await fetch("http://localhost:3000/api/teddies")
+	teddies = await fetch("http://localhost:3000/api/teddies")
 		.then(res =>res.json());
 	//console.log(index); // prouve que l'API a bien chargée les données
 };
@@ -19,19 +19,19 @@ const showArticles = async() => {
 
 	results.innerHTML = (
 
-		index
-			.map(index => (
+		teddies
+			.map(teddy => (
 				// pour écrire du HTML dans JS
 				`
-					<li class="article-item">	
-						<h3 class="article-name">${index.name}</h3>
-						<p class="article-description">${index.description}</p>
-						<p class="article-price">${index.price}</p>
-						<img class="article-img" src="${index.imageUrl}" />
+					<div class="article-item">	
+						<h3 class="article-name">${teddy.name}</h3>
+						<p class="article-description">${teddy.description}</p>
+						<p class="article-price">${teddy.price}</p>
+						<img class="article-img" src="${teddy.imageUrl}" />
 						<div>
 						<button id="btnShowArt">Voir le produit</button>
 						</div>
-					</li>
+					</div>
 				`
 			)).join('')//pour eviter les virgules
 	);
