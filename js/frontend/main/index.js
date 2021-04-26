@@ -7,7 +7,7 @@ let teddies;
 const fetchApi = async () => {
 	teddies = await fetch("http://localhost:3000/api/teddies")
 		.then(res =>res.json());
-	//console.log(index); // prouve que l'API a bien chargée les données
+	//console.log(style); // prouve que l'API a bien chargée les données
 };
 
 //fetchApi(); // ok on a bien recuperé l API
@@ -26,6 +26,7 @@ const showArticles = async() => {
 					<div class="article-item">
 						</br></br>
 						<h3 class="article-name">${teddy.name}</h3>
+						<h3 class="article-id">${teddy.id}</h3>
 						</br></br>
 						<p class="article-description">${teddy.description}</p>
 						</br></br>

@@ -170,4 +170,14 @@ button--full-width {
   margin: 0 auto;
 }
 
-/*# sourceMappingURL=style.css.map */
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.article-item {
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=index.css.map */
