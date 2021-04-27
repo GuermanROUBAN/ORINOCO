@@ -170,4 +170,21 @@ button--full-width {
   margin: 0 auto;
 }
 
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.article-item {
+  margin-bottom: 20px;
+}
+
+.aboutUs {
+  margin: auto;
+  width: 80%;
+  text-align: justify;
+  margin-bottom: 20px;
+}
+
 /*# sourceMappingURL=produits.css.map */

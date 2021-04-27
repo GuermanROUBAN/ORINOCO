@@ -3,13 +3,6 @@ const results = document.getElementById('results');
 
 let teddies;
 
-let _id = [];
-let i = [];
-
-
-
-
-
 // ETAPE 1 - API REQUEST
 const fetchApi = async () => {
 	teddies = await fetch("http://localhost:3000/api/teddies")
@@ -40,7 +33,7 @@ const showArticles = async () => {
 						</br></br>
 						<p class="article-price">${teddy.price}</p>
 						</br></br>
-						<a href="./html/produits.html">
+						<a href="/html/produits.html?${teddy._id}">
 						<img class="article-img" src="${teddy.imageUrl}" />
 						</a>
 						</br></br>					
