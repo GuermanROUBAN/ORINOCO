@@ -5,7 +5,7 @@ let teddies;
 
 // ETAPE 1 - API REQUEST
 const fetchApi = async () => {
-	teddies = await fetch("http://localhost:3000/api/teddies")
+	teddies = await fetch("https://teddies-api.herokuapp.com/api/teddies/")
 		.then(res => res.json());
 	//console.log(style); // prouve que l'API a bien chargée les données
 };
@@ -27,13 +27,13 @@ const showArticles = async () => {
 						
 						</br></br>
 						<h3 class="article-name">${teddy.name}</h3>
-						<h3 class="article-id">${teddy._id}</h3>
+						<!--<h3 class="article-id">${teddy._id}</h3>-->
 						</br></br>
 						<p class="article-description">${teddy.description}</p>
 						</br></br>
 						<p class="article-price">${teddy.price}</p>
 						</br></br>
-						<a href="/html/produits.html?${teddy._id}">
+						<a href="/html/produits.html?id=${teddy._id}">
 						<img class="article-img" src="${teddy.imageUrl}" />
 						</a>
 						</br></br>					
