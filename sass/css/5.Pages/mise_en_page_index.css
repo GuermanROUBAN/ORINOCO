@@ -1,3 +1,7 @@
-
+#results {
+  background: chartreuse;
+  display: flex;
+  justify-content: space-between;
+}
 
 /*# sourceMappingURL=mise_en_page_index.css.map */
