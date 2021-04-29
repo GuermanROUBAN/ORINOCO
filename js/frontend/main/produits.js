@@ -26,18 +26,9 @@ fetch('http://localhost:3000/api/teddies/'+ id)
 	.then(res => res.json())
 	.then(data=>console.log(data))
 */
-/*
-const positionProduit  = document.getElementById("nounours");
-console.log(positionProduit);
-/*
-/*
-let respose = fetch('http://localhost:3000/api/teddies/' + id)
-	.then(res => res.json())
-	//.then(data => console.log(data));
-*/
-//------------------------------------------------------------
 
-const results = document.getElementById('results');
+
+//const results = document.getElementById('results');
 
 let donnees;
 
@@ -45,13 +36,13 @@ let donnees;
 const fetchProduit = async () => {
 	donnees = await fetch ('http://localhost:3000/api/teddies/'+id)
 		.then(res => res.json());
-		console.log(produit); // ca m'affiche bien l'Api
+		console.log(donnees); // ca m'affiche bien l'Api
 };
 
-// fetchProduit(); // ok on a bien recuperé l API
+ fetchProduit(); // ok on a bien recuperé l API
 
 /*
-// ETAPE 2 - CREATION D'UN MASQUE
+// ETAPE 2 - CREATION D'UN MASQUE- VARIANTE 1
 
 const showProduit = async () => {
 	await fetchProduit();
@@ -73,3 +64,38 @@ showProduit();
 // ça m affiche le name de tous les articles si je rentre par la page produit
 // ca ne m affiche pas le name de mon id
 */
+
+//------------------------------------------------------------------------------------------
+
+// ETAPE 2 - CREATION D'UN MASQUE - VARIANTE 2
+
+const positionProduit  = document.getElementById("selected_article");
+console.log(positionProduit);
+
+const structureProduit = `
+
+<div id="selected_article">
+				<h3 class="article-name">Nom du produit: <span>Lorem ipsum dolor </span></h3>
+				<h3 class="article-id">Id du produit: <span>Lorem ipsum dolor </span></h3>
+				<h3 class="article-description">Description du produit: <span>Lorem ipsum dolor </span></h3>
+				<form>
+					<label for="article-option"></label>
+					<select name="article-option" id="article-option">
+						<option value="option_1">Couleur 1</option>
+						<option value="option_2">Couleur 2</option>
+						<option value="option_3">Couleur 3</option>
+					</select>
+				</form>
+				<h3 class="article-price">Prix: <span>99 F</span></h3>
+				<div class="cadre_image">
+						<img class="article-img" src="http://localhost:3000/images/teddy_3.jpg" />
+				</div>
+			</div>
+			<button id="btnByeArt" type="submit" name="btnByeArt">Acheter</button>
+
+`
+	;
+
+// injection HTML
+
+positionProduit.innerHTML = structureProduit;

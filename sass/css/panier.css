@@ -187,4 +187,33 @@ h1 {
   margin-bottom: 20px;
 }
 
+#main {
+  display: flex;
+  flex-direction: column;
+}
+
+#selected_article {
+  display: flex;
+  flex-direction: column;
+  background: chartreuse;
+  margin: auto;
+  width: 80%;
+  border: solid;
+  color: darkred;
+}
+#selected_article span {
+  color: darkblue;
+}
+#selected_article img {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+#btnByeArt {
+  margin: auto;
+}
+
 /*# sourceMappingURL=panier.css.map */
