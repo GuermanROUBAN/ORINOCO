@@ -32,7 +32,7 @@ const showArticles = async () => {
 						</br></br>
 						<p class="article-price">${teddy.price +"euros"}</p>
 						</br></br>
-						<a href="/html/produits.html?:id${teddy._id}">
+						<a href="/html/produits.html?id=${teddy._id}">
 						<img class="article-img" src="${teddy.imageUrl}" />
 						</a>
 						</br></br>					
