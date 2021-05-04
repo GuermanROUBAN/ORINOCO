@@ -17,7 +17,7 @@ let donnees = [];
 
 // ETAPE 1 - API REQUEST
 const fetchProduit = async () => {
-	donnees = await fetch(`http://localhost:3000/api/teddies/${id}`)
+	donnees = await fetch(`https://teddies-api.herokuapp.com/api/teddies/${id}`)
 		.then(res => res.json());
 	// structureProduit(donnees);
 	//console.log(donnees); // ca m'affiche bien l'Api	
@@ -33,18 +33,18 @@ await fetchProduit();
 showProduit();
 
 function structureProduit(parametre) {
-
+	
 	return `
 	<div id="selected_article">
 				<h3 class="article-name">Nom du produit: <span>${parametre.name}</span></h3>
 				<h3 class="article-id">Id du produit: <span>${parametre._id}</span></h3>
 				<h3 class="article-description">Description du produit: <span>${parametre.description}</span></h3>
 				<form>
-					<label for="article-option">${parametre.option}</label>
+					<label for="article-option"></label>
 					<select name="article-option" id="article-option">
 					</select>
 				</form>
-				<h3 class="article-price">Prix: <span>${parametre.price}</span></h3>
+				<h3 class="article-price">Prix: <span>${numberWhitComa(parametre.price)}</span></h3>
 				<div class="${parametre.imageUrl}">
 						<img class="article-img" src="${parametre.imageUrl}" />
 				</div>
@@ -53,7 +53,9 @@ function structureProduit(parametre) {
 	`;
 }
 
-
+// Affichage correct du prix avec la virgule
+function numberWhitComa(x) {
+	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',')}
 
 //------------------------------------------------------------------------------------------
 
