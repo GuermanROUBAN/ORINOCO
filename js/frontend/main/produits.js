@@ -32,7 +32,6 @@ const showProduit = async () => {
 	await fetchProduit();
 }
 showProduit();
-
 //-------------------------------------------------------
 // créer une fonction qui va générer l'ensemble des options, avec ces dernières passées en paramètre
 function showOptions(options){
@@ -44,15 +43,13 @@ function showOptions(options){
 		console.log(options[i]);
 		let htmlOption = `<option value="${options[i]}">${options[i]}</option>`;
 		console.log(htmlOption);
-		htmlOption.innerHTML = htmlOption;
+		varHTMLvide += htmlOption
 	}
-	// on récupère la couleur courante via l'index du for qui s'incrémente
-	// création d'une variable avec le code HTML d'une option à l'intérieur
-	// ajoute dans la variable qui doit contenir le HTML le HTML d'une option, la variable qu'on vient de créer
-	// retourne le contenu HTML créé contenant toutes les options HTML, qui sera utilisé dans la fonction de création du HTML
-};
+	return varHTMLvide;
+
+}
 function structureProduit(parametre) {
-	let initial = showOptions(parametre.colors);
+	let colors = showOptions(parametre.colors);
 	return `
 	<div id="selected_article">
 				<h3 class="article-name">Nom du produit: <span>${parametre.name}</span></h3>
@@ -61,7 +58,7 @@ function structureProduit(parametre) {
 				<form>
 					<label for="article-option">Choisir la couleur</label>
 					<select name="article-option" id="article-option">
-					${varHTMLvide}
+					${colors}
 					</select>
 				</form>
 				<h3 class="article-price">Prix: <span>${numberWhitComa(parametre.price)}</span></h3>
