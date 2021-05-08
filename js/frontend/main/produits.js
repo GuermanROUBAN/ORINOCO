@@ -35,16 +35,16 @@ function structureProduit(parametre) {
 	let colors = showOptions(parametre.colors);
 	return `
 	<div id="selected_article">
-				<h3 class="article_name" id="article_name">Nom du produit: <span>${parametre.name}</span></h3>
-				<h3 class="article_id" id="article_id">Id du produit: <span>${parametre._id}</span></h3>
-				<h3 class="article_description" id="article_description">Description du produit: <span>${parametre.description}</span></h3>
+				<h3 class="article_name">Nom du produit: <span id="article_name">${parametre.name}</span></h3>
+				<h3 class="article_id">Id du produit: <span id="article_id">${parametre._id}</span></h3>
+				<h3 class="article_description">Description du produit: <span id="article_description">${parametre.description}</span></h3>
 				<form>
 					<label for="article_option">Choisir la couleur</label>
 					<select name="article_option" id="article_option">
 					${colors}
 					</select>
 				</form>
-				<h3 class="article_price" id="article_price">Prix: <span>${numberWhitComa(parametre.price)}</span></h3>
+				<h3 class="article_price" >Prix: <span id="article_price">${numberWhitComa(parametre.price)}</span></h3>
 				<div class="${parametre.imageUrl}">
 						<img class="article_img" id="article_img" src="${parametre.imageUrl}" />
 				</div>
@@ -94,12 +94,12 @@ const local = JSON.parse(localStorage.getItem("cardSelected"));
 
 btnByeArt.onclick = () => {
 	const cardSelected = {
-		Nom:`${parametre.name}`,
-		Id:article_id,
-		Description: article_description,
+		Nom:article_name.textContent,
+		Id:article_id.textContent,
+		Description: article_description.textContent,
 		Option: article_option.value,
-		Prix: article_price,
-		Photo: article_img
+		Prix: article_price.textContent,
+		Photo: article_img.src
 	}
 	localStorage.setItem("card", JSON.stringify(cardSelected));
 	document.location.reload();
