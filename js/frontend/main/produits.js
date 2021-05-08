@@ -80,7 +80,7 @@ numberWhitComa = (x) => {
 };
 
 //-----------------------------------------------------------------------------------------------
-// ETAPE 5 - AFFICHAGE DU PRIX
+// ETAPE 6 - CREATION LOCAL STORAGE
 //localStorage.setItem("clé","valeur")
 //localStorage.getItem("clé")
 //localStorage.clear();
@@ -94,8 +94,8 @@ const local = JSON.parse(localStorage.getItem("cardSelected"));
 
 btnByeArt.onclick = () => {
 	const cardSelected = {
-		Nom:article_name,
-		Id: article_id,
+		Nom:`${parametre.name}`,
+		Id:article_id,
 		Description: article_description,
 		Option: article_option.value,
 		Prix: article_price,
