@@ -87,30 +87,47 @@ numberWhitComa = (x) => {
 //JSON.stringify(object); // transforme un objet en string
 //JSON.parse(string); // a l'inverse transforme un string en objet
 
-
-const local = JSON.parse(localStorage.getItem("produit")); //recuperation 
-
-
-
+// Ajout de l'objet produit au click
 btnByeArt.onclick = () => {
-		
 
-		let produit = 
-			{
-				Nom: article_name.textContent,
-				Id: article_id.textContent,
-				Description: article_description.textContent,
-				Option: article_option.value,
-				Prix: article_price.textContent,
-				Photo: article_img.src,
-				Qty: 0
-			}
+	let produit =
+	{
+		Nom: article_name.textContent,
+		Id: article_id.textContent,
+		Description: article_description.textContent,
+		Option: article_option.value,
+		Prix: article_price.textContent,
+		Photo: article_img.src,
+	}
+
+	// Controle si le panier existe dans le LS
+	let panier = localStorage.getItem('panier');
+	console.log(panier); // donne null
+
+	// Si le panier n'existe est null
+	if (localStorage.getItem('panier') == null) {
 		
-		console.log(typeof produit);
-		localStorage.setItem("produit", JSON.stringify(produit));
-		document.location.reload();// recharge la page au click sur le bouton
+		// recuperer la valeur du tableau panierArray
+		let panierArray = [];
+		// ajouter un produit dans l'array
+		panierArray.push(produit);
+		// transformer objet en string
+		let panierArrayJSON = JSON.stringify(panierArray);
+		// mettre à jour le LS
+		localStorage.setItem('panier', panierArrayJSON);
 
 	}
+	// Si le panier existe
+	else {
+		// Prende la valeur du panier LS et parser pour ajouter un nouveau produit
+		let parsedPanier = JSON.parse(localStorage.getItem('panier'));
+		// ajouter un produit dans l'array
+		parsedPanier.push(produit);
+		// mettre à jour le LS
+		localStorage.setItem('panier', JSON.stringify(parsedPanier))
+	}
+}
+
 
 
 //------------------------------------  
