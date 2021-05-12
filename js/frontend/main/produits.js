@@ -90,6 +90,8 @@ numberWhitComa = (x) => {
 
 const local = JSON.parse(localStorage.getItem("produit")); //recuperation 
 
+
+
 btnByeArt.onclick = () => {
 		
 
