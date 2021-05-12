@@ -1,5 +1,11 @@
 
-const local = JSON.parse(localStorage.getItem("articlesPanier"));
 
-if (localStorage.getItem("panier") != null)//si la clé existe
-	h6.textContent = `${localStorage.getItem("panier")} tu es sur le point d'acheter un nounours gars`;
+
+
+const local = JSON.parse(localStorage.getItem("produit")); //recuperation
+
+
+if (local != null)//si la clé existe
+panier.textContent = `${local.Nom}`;
+panier.textContent = `${local.Id}`;
+//panier.textContent = `${local.Option}`
