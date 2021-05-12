@@ -87,31 +87,27 @@ numberWhitComa = (x) => {
 //JSON.stringify(object); // transforme un objet en string
 //JSON.parse(string); // a l'inverse transforme un string en objet
 
-const local = JSON.parse(localStorage.getItem("products"));
-
-//if (localStorage.getItem("Nom") != null)//si la clé existe
+const local = JSON.parse(localStorage.getItem("articlesPanier")); //recuperation 
 
 
-btnByeArt.onclick = () => {
+	btnByeArt.onclick = () => {
 	
-	let products = [
-		{
-			Nom: article_name.textContent,
-			Id: article_id.textContent,
-			Description: article_description.textContent,
-			Option: article_option.value,
-			Prix: article_price.textContent,
-			Photo: article_img.src,
-			inCart:0
-		}	
-	]
+		let articlesPanier = [
+			{
+				Nom: article_name.textContent,
+				Id: article_id.textContent,
+				Description: article_description.textContent,
+				Option: article_option.value,
+				Prix: article_price.textContent,
+				Photo: article_img.src,
+				Qty: 0
+			}
+		]
+		//console.log(typeof articlesPaniers);
+		localStorage.setItem("panier", JSON.stringify(articlesPanier));
+		document.location.reload();
 
+	}
 
-
-	//console.log(typeof products);
-	localStorage.setItem("cart", JSON.stringify(products));
-	document.location.reload();
-}
 
 //------------------------------------  
-
