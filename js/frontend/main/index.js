@@ -7,7 +7,7 @@ let teddies;
 const fetchApi = async () => {
 	teddies = await fetch("http://localhost:3000/api/teddies")
 		.then(res => res.json());
-	//console.log(teddies); // prouve que l'API a bien chargée les données
+	console.log(teddies); // prouve que l'API a bien chargée les données
 };
 
 //fetchApi(); // ok on a bien recuperé l API

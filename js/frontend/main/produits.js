@@ -88,6 +88,7 @@ numberWhitComa = (x) => {
 //JSON.parse(string); // a l'inverse transforme un string en objet
 
 // Ajout de l'objet produit au click
+
 btnByeArt.onclick = () => {
 
 	let produit =
@@ -98,15 +99,16 @@ btnByeArt.onclick = () => {
 		Option: article_option.value,
 		Prix: article_price.textContent,
 		Photo: article_img.src,
+		qty:1
 	}
 
 	// Controle si le panier existe dans le LS
+
 	let panier = localStorage.getItem('panier');
 	console.log(panier); // donne null
 
-	// Si le panier n'existe est null
-	if (localStorage.getItem('panier') == null) {
-		
+	// Si le panier est null
+	if (localStorage.getItem('panier') == null) {		
 		// recuperer la valeur du tableau panierArray
 		let panierArray = [];
 		// ajouter un produit dans l'array
@@ -115,19 +117,18 @@ btnByeArt.onclick = () => {
 		let panierArrayJSON = JSON.stringify(panierArray);
 		// mettre à jour le LS
 		localStorage.setItem('panier', panierArrayJSON);
-
 	}
 	// Si le panier existe
 	else {
-		// Prende la valeur du panier LS et parser pour ajouter un nouveau produit
+		// Prende la valeur du panier LS et parse pour ajouter un nouveau produit
 		let parsedPanier = JSON.parse(localStorage.getItem('panier'));
 		// ajouter un produit dans l'array
 		parsedPanier.push(produit);
 		// mettre à jour le LS
 		localStorage.setItem('panier', JSON.stringify(parsedPanier))
 	}
+	
 }
-
 
 
 //------------------------------------  
