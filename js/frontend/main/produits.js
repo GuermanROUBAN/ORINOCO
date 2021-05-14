@@ -76,7 +76,7 @@ function showOptions(options) {
 // ETAPE 5 - AFFICHAGE DU PRIX
 // Affichage correct du prix avec la virgule
 numberWhitComa = (x) => {
-	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',') + " EUR TTC"
+	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',') + " €"
 };
 
 //-----------------------------------------------------------------------------------------------

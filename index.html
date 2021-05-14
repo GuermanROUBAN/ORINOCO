@@ -10,19 +10,26 @@
 	<title>Orinoco</title>
 	<link rel="stylesheet" href="./sass/css/style.css">
 	<link rel="stylesheet" href="./sass/css/index.css">
-	<script src="./js/frontend/main/index.js" defer></script>
+	<link href="fonts/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet" />
+	
+
+
 </head>
 
 <body>
 	<div class="main__container">
 		<!--firstElementChild-->
 		<header>
-			<img class="logo" src="./images/logo_orinoco.webp" alt="Logo Orinoco"></a>
+			<img class="logo" src="/images/logo_orinoco.webp" alt="Logo Orinoco"></a>
 			<nav class="nav__header">
 				<ul>
-					<li><a href="./index.html">Acceuil</a></li>
-					<li><a href="./html/produits.html">Produits</a></li>
-					<li><a href="./html/panier.html">Panier</a></li>
+					<li class="nav_index"><a href="/index.html">Acceuil</a></li>
+					<li class="nav_produit"><a href="produits.html">Produits</a></li>
+					<li class="nav_panier">
+						<a href="/html/panier.html">
+							<i class="fas fa-shopping-basket"></i>Panier<span>0</span>
+						</a>
+					</li>
 				</ul>
 			</nav>
 		</header>
@@ -42,7 +49,8 @@
 			<h2>Tous droits réservés</h2>
 		</footer>
 	</div>
-
+	<script defer src="/fontawesome-free-5.15.3-web/js/all.js"></script>
+	<script src="./js/frontend/main/index.js" defer></script>
 </body>
 <!--nextElementSibiling (null)-->
 

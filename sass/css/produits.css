@@ -112,6 +112,10 @@ header {
   height: 100px;
   align-items: center;
 }
+header nav li {
+  display: inline-block;
+  padding-left: 15px;
+}
 header a {
   display: flex;
   align-items: center;
@@ -152,6 +156,69 @@ header img {
   margin: auto;
 }
 
+.panier {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  background: greenyellow;
+}
+
+.panier-string {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border: solid;
+  background: #97dbec;
+  align-items: center;
+  margin-bottom: 20px;
+  margin: 5px;
+}
+.panier-string .panier-img {
+  width: 15%;
+  border-radius: 25px;
+  object-fit: cover;
+}
+.panier-string .panier-name {
+  width: 15%;
+  text-align: center;
+  font-weight: 600;
+  margin: 0 5px;
+}
+.panier-string .panier-id {
+  width: 15%;
+  overflow: hidden;
+  font-size: 1rem;
+}
+.panier-string .panier-description {
+  width: 20%;
+  text-align: justify;
+  font-size: 1rem;
+  margin: 0 10px;
+}
+.panier-string .panier-price {
+  width: 15%;
+  text-align: center;
+  margin: 0 5px;
+}
+.panier-string input {
+  width: 5%;
+  text-align: center;
+}
+.panier-string .panier-price-sum {
+  width: 15%;
+  text-align: center;
+}
+
+/*
+.panier-img
+.panier-name
+.panier-id
+.panier-description
+.panier-price
+input
+a
+*/
 button {
   box-shadow: grey 3px 3px 10px;
   font-size: 1.5rem;
@@ -185,6 +252,35 @@ h1 {
   width: 80%;
   text-align: justify;
   margin-bottom: 20px;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+}
+
+#selected_article {
+  display: flex;
+  flex-direction: column;
+  background: chartreuse;
+  margin: auto;
+  width: 80%;
+  border: solid;
+  color: darkred;
+}
+#selected_article span {
+  color: darkblue;
+}
+#selected_article img {
+  display: flex;
+  margin: auto;
+  width: 100%;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+#btnByeArt {
+  margin: auto;
 }
 
 /*# sourceMappingURL=produits.css.map */

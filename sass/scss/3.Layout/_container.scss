@@ -1,3 +1,6 @@
+
+// Carte produit sur page index
+
 .article-item{
 	border:solid;
 	background: steelblue;
@@ -27,3 +30,76 @@
 		margin:auto;
 	}
 }
+
+// Carte produit sur page panier
+
+.panier{
+	display:flex;
+	flex-wrap: wrap;
+	width: 100%;
+	margin: auto;
+	background: greenyellow;
+}
+
+.panier-string{
+	display:flex;
+	flex-wrap: wrap;
+	width: 100%;
+	border:solid;
+	background: rgb(151, 219, 236);
+	align-items: center;
+	margin-bottom: 20px;
+	.panier-img{
+		width:15%;
+		border-radius: 25px;
+		object-fit: cover;
+	}
+	.panier-name{
+		width:15%;
+		text-align: center;
+		font-weight: 600;
+		margin:0 5px;
+	
+	}
+	.panier-id{
+
+		width:15%;
+		overflow: hidden;
+		font-size: 1rem;
+	
+	}
+	.panier-description{
+		width:20%;
+		text-align: justify;
+		font-size: 1rem;
+		margin:0 10px;
+	
+	}
+	.panier-price{
+		width:15%;
+		text-align: center;
+		margin:0 5px;
+	
+	}
+	input{
+
+		width:5%;
+		text-align: center;
+	
+	}
+	.panier-price-sum{
+		width:15%;
+		text-align: center;}
+		margin: 5px;
+	
+}
+
+/*
+.panier-img
+.panier-name
+.panier-id
+.panier-description
+.panier-price
+input
+a
+*/
