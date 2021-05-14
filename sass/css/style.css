@@ -86,8 +86,13 @@ body {
 
 h1 {
   font-family: "Shrikhand", sans-serif;
-  color: #FF79DA;
+  color: #bcce57;
   font-size: 3rem;
+}
+
+h3 {
+  font-weight: 900;
+  font-size: 2rem;
 }
 
 textarea {
@@ -109,15 +114,16 @@ header {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  height: 100px;
+  height: 140px;
   align-items: center;
+  background: #b9906ade;
 }
 header nav li {
   display: inline-block;
   padding-left: 15px;
 }
 header li a {
-  background: red;
+  background: #b9906ade;
   padding: 10px;
   border-radius: 50px;
 }
@@ -127,38 +133,42 @@ header li a a:visited {
 header a {
   padding-left: 5px;
 }
-header i {
+header svg {
+  margin-right: 5px;
   border-radius: 50px;
 }
 header span {
-  padding: 10px;
+  padding: 5px;
 }
 header img {
-  height: 100%;
+  border-radius: 50px;
+  width: 20%;
+  max-height: 100px;
   object-fit: cover;
 }
 
 .article-item {
-  border: solid;
-  background: steelblue;
+  background: #5f4b26de;
   border-radius: 25px;
-  width: 80%;
+  width: 30%;
   margin: auto;
 }
 .article-item img {
   display: flex;
   margin: auto;
-  width: 95%;
+  width: 80%;
+  max-height: 200px;
   border-radius: 25px;
   object-fit: cover;
 }
 .article-item h3, .article-item p {
-  color: #FF79DA;
   display: flex;
   justify-content: center;
+  color: #bcce57;
 }
 .article-item .article-description {
-  text-align: center;
+  margin: 10px;
+  text-align: justify;
 }
 .article-item .btnShowArt {
   display: flex;
@@ -229,13 +239,21 @@ header img {
 input
 a
 */
+footer {
+  display: flex;
+  width: 100%;
+  height: 140px;
+  align-items: center;
+  background: #b9906ade;
+}
+
 button {
   box-shadow: grey 3px 3px 10px;
   font-size: 1.5rem;
   border-radius: 50px;
   padding: 2.4rem;
   color: #fff;
-  background: linear-gradient(180deg, #FF79DA, #FF79DA 10%, #9356DC);
+  background: linear-gradient(180deg, #bcce57, #bcce57 10%, #397214);
   cursor: pointer;
 }
 button:hover {
@@ -247,10 +265,14 @@ button--full-width {
   margin: 0 auto;
 }
 
+.main {
+  background: #5f4b26de;
+}
+
 h1 {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .article-item {

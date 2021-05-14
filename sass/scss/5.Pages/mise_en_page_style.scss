@@ -1,7 +1,10 @@
+.main{
+	background:($colour-fond);
+}
 h1{
 	display:flex;
 	justify-content: center;
-	margin-bottom: 20px;
+	padding:20px;
 }
 
 .article-item{

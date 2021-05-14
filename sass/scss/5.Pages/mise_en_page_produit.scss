@@ -10,13 +10,13 @@
 #selected_article{
 	display: flex;
 	flex-direction: column;
-	background: chartreuse;
+	background: ($colour-carte);
 	margin:auto;
 	width: 80%;
 	border: solid;
-	color:darkred;
+	
 	span{
-		color:darkblue;
+	
 	}
 	img{
 		display:flex;

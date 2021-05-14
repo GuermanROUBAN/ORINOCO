@@ -1,34 +1,17 @@
-.nav_produit {
-  display: none;
-}
+/* Error: Undefined variable.
+ *    ,
+ * 13 |     background: ($colour-carte);
+ *    |                  ^^^^^^^^^^^^^
+ *    '
+ *   sass\scss\5.Pages\mise_en_page_produit.scss 13:15  root stylesheet */
 
-#main {
-  display: flex;
-  flex-direction: column;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 13 \2502      background: ($colour-carte);\d\a    \2502                   ^^^^^^^^^^^^^\a    \2575 \a   sass\\scss\\5.Pages\\mise_en_page_produit.scss 13:15  root stylesheet";
 }
-
-#selected_article {
-  display: flex;
-  flex-direction: column;
-  background: chartreuse;
-  margin: auto;
-  width: 80%;
-  border: solid;
-  color: darkred;
-}
-#selected_article span {
-  color: darkblue;
-}
-#selected_article img {
-  display: flex;
-  margin: auto;
-  width: 100%;
-  border-radius: 25px;
-  object-fit: cover;
-}
-
-#btnByeArt {
-  margin: auto;
-}
-
-/*# sourceMappingURL=mise_en_page_produit.css.map */

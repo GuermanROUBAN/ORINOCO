@@ -35,9 +35,11 @@ const showArticles = async () => {
 						</br></br>
 						<p class="article-price">${numberWhitComa(teddy.price)}</p>
 						</br></br>
+						
 						<a href="/html/produits.html?id=${teddy._id}">
 						<img class="article-img" src="${teddy.imageUrl}" />
 						</a>
+					
 						</br></br>					
 						<a href="/html/produits.html?id=${teddy._id}">
 						<div>
