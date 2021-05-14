@@ -28,8 +28,8 @@ const showArticles = async () => {
 					<div class="article-item">
 						
 						</br></br>
-						<h3 class="article-name">${teddy.name}</h3>
-						<!--<h3 class="article-id">${teddy._id}</h3>-->
+						<h2 class="article-name">${teddy.name}</h2>
+						<!--<h2 class="article-id">${teddy._id}</h2>-->
 						</br></br>
 						<p class="article-description">${teddy.description}</p>
 						</br></br>

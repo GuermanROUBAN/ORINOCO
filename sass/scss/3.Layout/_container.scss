@@ -5,9 +5,8 @@
 .article-item{
 	
 	background: ($colour-carte);
-	border-radius: 25px;
+	border-radius:25px;
 	width:30%;
-
 	margin:auto;
 	img{
 	display:flex;
@@ -17,17 +16,16 @@
 	border-radius: 25px;
 	object-fit: cover;
 	}
-	h3, p{
+	h2, p{
 		display: flex;
 		justify-content:center;
 		color:($colour-secondary);
 		
 	}
 
-
 	.article-description{
 		margin: 10px;
-		text-align: justify;
+		text-align: center;
 		
 	}
 	.btnShowArt{
@@ -44,7 +42,7 @@
 	flex-wrap: wrap;
 	width: 100%;
 	margin: auto;
-	background: greenyellow;
+	background: ($colour-nav);
 }
 
 .panier-string{
@@ -52,7 +50,7 @@
 	flex-wrap: wrap;
 	width: 100%;
 	border:solid;
-	background: rgb(151, 219, 236);
+	background:($colour-carte);
 	align-items: center;
 	margin-bottom: 20px;
 	.panier-img{
@@ -93,11 +91,25 @@
 		text-align: center;
 	
 	}
+	h2, p{
+		color:($colour-secondary);
+	}
 	.panier-price-sum{
 		width:15%;
-		text-align: center;}
-		margin: 5px;
-	
+		text-align: center;
+		margin: 5px;}
+
+	.btnDeletArt{
+		width:5%;
+		height:5%;
+}
+.btnDeletArt, a{
+	display: flex;
+	justify-content: center;
+	align-items: center ;
+	font-size: 1rem;
+	background: ($colour-invalid);
+}
 }
 
 /*

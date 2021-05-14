@@ -86,11 +86,12 @@ body {
 
 h1 {
   font-family: "Shrikhand", sans-serif;
-  color: #bcce57;
+  color: #f09993fa;
   font-size: 3rem;
+  font-weight: 900;
 }
 
-h3 {
+h2 {
   font-weight: 900;
   font-size: 2rem;
 }
@@ -161,14 +162,14 @@ header img {
   border-radius: 25px;
   object-fit: cover;
 }
-.article-item h3, .article-item p {
+.article-item h2, .article-item p {
   display: flex;
   justify-content: center;
   color: #bcce57;
 }
 .article-item .article-description {
   margin: 10px;
-  text-align: justify;
+  text-align: center;
 }
 .article-item .btnShowArt {
   display: flex;
@@ -181,7 +182,7 @@ header img {
   flex-wrap: wrap;
   width: 100%;
   margin: auto;
-  background: greenyellow;
+  background: #b9906ade;
 }
 
 .panier-string {
@@ -189,10 +190,9 @@ header img {
   flex-wrap: wrap;
   width: 100%;
   border: solid;
-  background: #97dbec;
+  background: #5f4b26de;
   align-items: center;
   margin-bottom: 20px;
-  margin: 5px;
 }
 .panier-string .panier-img {
   width: 15%;
@@ -225,9 +225,24 @@ header img {
   width: 5%;
   text-align: center;
 }
+.panier-string h2, .panier-string p {
+  color: #bcce57;
+}
 .panier-string .panier-price-sum {
   width: 15%;
   text-align: center;
+  margin: 5px;
+}
+.panier-string .btnDeletArt {
+  width: 5%;
+  height: 5%;
+}
+.panier-string .btnDeletArt, .panier-string a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  background: #DB464B;
 }
 
 /*
@@ -281,6 +296,9 @@ h1 {
 
 .aboutUs {
   margin: auto;
+  color: #f09993fa;
+  font-style: italic;
+  font-size: 1.8rem;
   width: 80%;
   text-align: justify;
   margin-bottom: 20px;
@@ -288,6 +306,11 @@ h1 {
 
 .nav_produit {
   display: none;
+}
+
+.tabeau_commande {
+  display: flex;
+  width: 100%;
 }
 
 /*# sourceMappingURL=panier.css.map */

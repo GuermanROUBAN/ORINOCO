@@ -2,4 +2,9 @@
   display: none;
 }
 
+.tabeau_commande {
+  display: flex;
+  width: 100%;
+}
+
 /*# sourceMappingURL=mise_en_page_panier.css.map */

@@ -24,11 +24,11 @@ function showPanier() {
 						
 
 						
-							<h3 class="panier-name">${teddies.Nom}</h3>
+							<h2 class="panier-name">${teddies.Nom}</h2>
 		
 
 						<!--
-							<h3 class="panier-id">${teddies.Id}</h3>
+							<h2 class="panier-id">${teddies.Id}</h2>
 						-->
 
 						

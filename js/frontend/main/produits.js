@@ -35,16 +35,16 @@ function structureProduit(parametre) {
 	let colors = showOptions(parametre.colors);
 	return `
 	<div id="selected_article">
-				<h3 class="article_name">Nom du produit: <span id="article_name">${parametre.name}</span></h3>
-				<h3 class="article_id">Id du produit: <span id="article_id">${parametre._id}</span></h3>
-				<h3 class="article_description">Description du produit: <span id="article_description">${parametre.description}</span></h3>
+				<h2 class="article_name">Nom du produit:</h2><p><span id="article_name">${parametre.name}</span></p>
+				<h2 class="article_id">Id du produit:</h2><p><span id="article_id">${parametre._id}</span></p>
+				<h2 class="article_description">Description du produit:</h2><p><span id="article_description">${parametre.description}</span></p>
 				<form>
-					<label for="article_option">Choisir la couleur</label>
+					<label for="article_option"><h3>Choisir la couleur:</h3></label>
 					<select name="article_option" id="article_option">
 					${colors}
 					</select>
 				</form>
-				<h3 class="article_price" >Prix: <span id="article_price">${numberWhitComa(parametre.price)}</span></h3>
+				<h2 class="article_price" >Prix:</h2><p><span id="article_price">${numberWhitComa(parametre.price)}</span></p>
 				<div class="${parametre.imageUrl}">
 						<img class="article_img" id="article_img" src="${parametre.imageUrl}" />
 				</div>
