@@ -116,12 +116,22 @@ header nav li {
   display: inline-block;
   padding-left: 15px;
 }
-header a {
-  display: flex;
-  align-items: center;
+header li a {
+  background: red;
+  padding: 10px;
+  border-radius: 50px;
 }
-header a:visited {
+header li a a:visited {
   color: black;
+}
+header a {
+  padding-left: 5px;
+}
+header i {
+  border-radius: 50px;
+}
+header span {
+  padding: 10px;
 }
 header img {
   height: 100%;

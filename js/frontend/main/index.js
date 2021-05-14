@@ -33,15 +33,17 @@ const showArticles = async () => {
 						</br></br>
 						<p class="article-description">${teddy.description}</p>
 						</br></br>
-						<p class="article-price">${teddy.price +"euros"}</p>
+						<p class="article-price">${numberWhitComa(teddy.price)}</p>
 						</br></br>
 						<a href="/html/produits.html?id=${teddy._id}">
 						<img class="article-img" src="${teddy.imageUrl}" />
 						</a>
 						</br></br>					
+						<a href="/html/produits.html?id=${teddy._id}">
 						<div>
 						<button id="btnShowArt" class="btnShowArt">Voir le produit</button>
 						</div>
+						</a>
 						</br></br>
 					</div>
 				
@@ -51,3 +53,8 @@ const showArticles = async () => {
 };
 
 showArticles();
+
+
+numberWhitComa = (x) => {
+	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',') + " €"
+};

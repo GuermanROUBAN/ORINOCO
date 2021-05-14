@@ -10,14 +10,27 @@ header{
 		padding-left: 15px;
 	}
 
-	a{
-		display: flex;
-		align-items: center;
-	}
-	a:visited 
+	li a{
+		background: red;
+		padding: 10px;
+		border-radius: 50px;
+		a:visited 
 	{ 
 	 color :black
 	}
+	}
+	a{
+		padding-left: 5px;
+	}
+
+	i{
+
+		border-radius: 50px;		
+	}
+	span{
+		padding: 10px;
+	}
+
 	img{
 		height:100%;
 		object-fit: cover;
