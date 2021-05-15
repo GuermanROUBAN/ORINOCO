@@ -132,3 +132,4 @@ btnByeArt.onclick = () => {
 
 
 //------------------------------------  
+comptArtPanier();

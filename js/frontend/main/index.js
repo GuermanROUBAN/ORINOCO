@@ -60,3 +60,7 @@ showArticles();
 numberWhitComa = (x) => {
 	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',') + " €"
 };
+
+
+//--------------------------
+comptArtPanier();
