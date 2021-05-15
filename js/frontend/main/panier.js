@@ -18,42 +18,28 @@ function showPanier() {
 				// pour écrire du HTML dans JS
 				`
 					<div class="panier">
-
 						<div class="panier-string">
-							<img class="panier-img" src="${teddies.Photo}" />
-						
+							<div class="panier-string-presentation">
+								<img class="panier-img" src="${teddies.Photo}" />												
+								<h2 class="panier-name">
 
-						
-							<h2 class="panier-name">${teddies.Nom}</h2>
-		
+								${teddies.Nom}</h2>
+								<!--<h2 class="panier-id">${teddies.Id}</h2>-->
+								<p class="panier-description">
 
-						<!--
-							<h2 class="panier-id">${teddies.Id}</h2>
-						-->
-
-						
-							<p class="panier-description">${teddies.Description}</p>
-					
-
-						
-							<p class="panier-price">${teddies.Prix}</p>
-					
-
-						
-							<a href="/html/produits.html?id=${teddies._id}"></a>
-					
-						
-						
-							<input type="number" value="${teddies.qty}">
-						
-
-						
-							<p class="panier-price-sum">${teddies.Prix}</p>
-						
-							<button id="btnDeletArt" class="btnDeletArt">Supprimer</button>
-						
+								${teddies.Description}</p>
 							</div>
-				
+						<div class="panier-string-calcul">
+								<p class="calcul-price">
+								${teddies.Prix}</p>
+								
+								<a href="/html/produits.html?id=${teddies._id}"></a>
+								<input type="number" value="${teddies.qty}">
+								<p class="calcul-price-sum">${teddies.Prix}</p>
+								<button id="btnDeletArt" class="btnDeletArt">Supprimer</button>
+							</div>
+						</div>
+					</div>
 				`
 			)).join('')//pour eviter les virgules
 	);

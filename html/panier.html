@@ -10,14 +10,13 @@
 	<title>Orinoco</title>
 	<link rel="stylesheet" href="/sass/css/style.css">
 	<link rel="stylesheet" href="/sass/css/panier.css">
-	<link href="fonts/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet" />
-	
+
 	<script src="/js/frontend/main/panier.js" defer></script>
 </head>
 
 <body>
 	<div class="main__container">
-		<!--firstElementChild--> 
+		<!--firstElementChild-->
 		<header>
 			<img class="logo" src="/images/logo_orinoco.webp" alt="Logo Orinoco"></a>
 			<nav class="nav__header">
@@ -35,19 +34,11 @@
 
 		<section class="main" id="main">
 			<h1>Votre commande</h1>
-			<div class="tabeau_commande">
-				<h2 class="tabeau_commande_photo">Photo</h2>
-				<h2 class="tabeau_commande_nom">Nom article</h2>
-				<h2 class="tabeau_commande_description">Description</h2>
-				<h2>Prix Unit</h2>
-				<h2>Quantité</h2>
-				<h2>Prix Total</h2>
-			</div>
 			<div id="panier" class="panier"></div>
-
-
-
-
+			<div id="panier_somme_totale"class="panier_somme_totale">
+				<h2>Montant de votre commande:</h2>	
+				<h2 class="resultat_panier" class="resultat_panier">00,00</h2>
+			</div>
 			<div id="vos coordonnees" class="coordonnees">
 				<form action="#" methode="post" enctype="multipart/form-data">
 					<fieldset>
@@ -56,46 +47,49 @@
 							<label for="name">Nom</label> <abbr title="Merci de saisir ici votre nom">*</abbr>
 							<input type="text" id="name" name="user_name" value="" class="form-control" required>
 						</div>
-	
+
 						<div class="form-group">
 							<label for="prénom">Prénom</label> <abbr title="Merci de saisir ici votre prénom">*</abbr>
 							<input type="text" id="firstName" name="user_fisrtName" class="form-control" required>
 						</div>
-	
+
 						<div class="form-group">
 							<label for="email">Votre adresse e-mail</label>
 							<abbr title="ex: utilisateur@internet.com">*</abbr>
 							<input type="email" id="email" name="user_email" class="form-control" required />
 						</div>
-	
+
 						<div class="form-group">
 							<label for="téléphone">Votre adresse numéro de téléphone</label>
 							<abbr title="ex: utilisateur@internet.com">*</abbr>
 							<input type="tel" id="phone" name="user_phone" class="form-control" required />
 						</div>
-	
+
 						<div class="form-group">
 							<label for="address">Adresse</label> <abbr title="Merci de saisir ici votre adresse">*</abbr>
 							<input type="text" id="address" name="user_address" class="form-control" required>
 						</div>
-	
+
 						<div class="form-group">
 							<label for="address_index">Code postal</label> <abbr
 								title="Merci de saisir ici votre code postal">*</abbr>
 							<input type="tel" id="address_index" name="user_address_index" class="form-control" required>
 						</div>
-	
+
 						<div class="form-group">
 							<label for="address_pays">Pays</label> <abbr title="Merci de saisir ici votre pays">*</abbr>
 							<input type="tel" id="address_country" name="user_address_country" class="form-control" required>
 						</div>
-	
+
 						<div class="form-group">
 							<label for="comments">Commentaires</label><abbr title="Ajoutez un commentaire">*</abbr>
 							<textarea id="comments" name="user_comments" class="form-control" rows="4" cols="50"
 								required></textarea>
 						</div>
-	
+						<div class="btnFinalisationPanier">
+							<button class="btnAnnulationPanier">Annuler</button>
+							<button class="btnValidationPanier">Envoyer</button>
+						</div>
 					</fieldset>
 				</form>
 			</div>

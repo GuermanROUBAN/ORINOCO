@@ -13,11 +13,7 @@
 	background: ($colour-carte);
 	margin:auto;
 	width: 80%;
-	border: solid;
-	
-	span{
-	
-	}
+	p {color: ($colour-secondary);}
 	img{
 		display:flex;
 		margin: auto;
@@ -29,4 +25,5 @@
 
 #btnByeArt{
 	margin:auto;
+	width: 80% ;
 }

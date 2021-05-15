@@ -37,14 +37,6 @@
 
 // Carte produit sur page panier
 
-.panier{
-	display:flex;
-	flex-wrap: wrap;
-	width: 100%;
-	margin: auto;
-	background: ($colour-nav);
-}
-
 .panier-string{
 	display:flex;
 	flex-wrap: wrap;
@@ -53,71 +45,54 @@
 	background:($colour-carte);
 	align-items: center;
 	margin-bottom: 20px;
-	.panier-img{
-		width:15%;
-		border-radius: 25px;
-		object-fit: cover;
-	}
-	.panier-name{
-		width:15%;
-		text-align: center;
-		font-weight: 600;
-		margin:0 5px;
-	
-	}
-	.panier-id{
-
-		width:15%;
-		overflow: hidden;
-		font-size: 1rem;
-	
-	}
-	.panier-description{
-		width:20%;
-		text-align: justify;
-		font-size: 1rem;
-		margin:0 10px;
-	
-	}
-	.panier-price{
-		width:15%;
-		text-align: center;
-		margin:0 5px;
-	
-	}
-	input{
-
-		width:5%;
-		text-align: center;
-	
-	}
 	h2, p{
 		color:($colour-secondary);
 	}
-	.panier-price-sum{
-		width:15%;
-		text-align: center;
-		margin: 5px;}
-
-	.btnDeletArt{
-		width:5%;
-		height:5%;
-}
-.btnDeletArt, a{
+	.panier-string-presentation{
+		display: flex;
+		align-items: center;
+		width:50%;
+		& .panier-img{
+			width:30%;
+			border-radius: 25px;
+			object-fit: cover;}
+		& .panier-name{
+			width:30%;
+			text-align: center;
+			font-weight: 600;
+			margin:0 5px;}
+		& .panier-name{
+			width:30%;
+			text-align: center;
+			font-weight: 600;
+			margin:0 5px;}
+		&.panier-id{
+			width:30%;
+			overflow: hidden;
+			font-size: 1rem;		
+			}
+		}
+	.panier-string-calcul{
+		display: flex;
+		align-items: center;
+		width:50%;
+		& .calcul-price{
+		width:40%;
+		text-align: center;}
+		& input{
+		width: 10%;
+		text-align: center;}
+		& .calcul-price-sum{
+		width:40%;
+		text-align: center;}
+		& .btnDeletArt{
+		width:20%;
+		}
+	.btnDeletArt, a{
 	display: flex;
 	justify-content: center;
 	align-items: center ;
 	font-size: 1rem;
 	background: ($colour-invalid);
+}}
 }
-}
-
-/*
-.panier-img
-.panier-name
-.panier-id
-.panier-description
-.panier-price
-input
-a
-*/
