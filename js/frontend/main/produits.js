@@ -89,6 +89,8 @@ numberWhitComa = (x) => {
 
 // Ajout de l'objet produit au click
 
+compteurArtictlesPanier();// controle combien d'articles sont presents dans le panier au chargement de la page
+
 btnByeArt.onclick = () => {
 
 	let produit =
@@ -127,11 +129,11 @@ btnByeArt.onclick = () => {
 		// mettre à jour le LS
 		localStorage.setItem('panier', JSON.stringify(parsedPanier))
 	}
-	compteurArtictlesPanier();
-	popupConf();
+
+	popupConf();//affiche la fenetre popup (depuis tools.js)
+	//compteurArtictlesPanier();//affiche le nombre d'articles dans le panier (depuis tools.js)
 }
 //-----------------------------------------------------------------------------------------------
-
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 8 - CALCUL COUT TOTAL
