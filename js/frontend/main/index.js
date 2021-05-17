@@ -33,7 +33,7 @@ const showArticles = async () => {
 						</br></br>
 						<p class="article-description">${teddy.description}</p>
 						</br></br>
-						<p class="article-price">${numberWhitComa(teddy.price)}</p>
+						<p class="article-price">${numberWhitComa(teddy.price)} €</p>
 						</br></br>
 						
 						<a href="/html/produits.html?id=${teddy._id}">
@@ -58,9 +58,9 @@ showArticles();
 
 
 numberWhitComa = (x) => {
-	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',') + " €"
+	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',')
 };
 
 
 //--------------------------
-comptArtPanier();
+compteurArtictlesPanier();

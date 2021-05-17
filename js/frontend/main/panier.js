@@ -11,11 +11,12 @@ if (localPanier != null) {//si la clé existe
 }
 //--------------------------------------------------------------------------------
 function showPanier() {
-
+	
 	panier.innerHTML = (// charge le JS dans l'id HTML
 		localPanier //prend les infos dans le LS
 			// traitement de chaque element de l'array avec une fonction
 			.map(teddies => (
+				
 				// pour écrire du HTML dans JS
 				`
 					<div class="panier">
@@ -33,10 +34,9 @@ function showPanier() {
 						<div class="panier-string-calcul">
 								<p class="calcul-price">
 								${teddies.Prix}</p>
-								
 								<a href="/html/produits.html?id=${teddies._id}"></a>
-								<input type="number" value="${teddies.qty}">
-								<p class="calcul-price-sum">${teddies.Prix}</p>
+								<input type="number" class="qty" value="${teddies.qty}">
+								<p class="calcul-price-sum"></p>
 								<button id="btnDeletArt" class="btnDeletArt">Supprimer</button>
 							</div>
 						</div>
@@ -44,6 +44,12 @@ function showPanier() {
 				`
 			)).join('')//pour eviter les virgules
 	);
+
 };
 
-comptArtPanier();
+compteurArtictlesPanier();
+
+//-----------------------------------------------------------------------------------------------
+// ETAPE 8 - CALCUL COUT TOTAL
+
+

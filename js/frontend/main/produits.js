@@ -76,7 +76,7 @@ function showOptions(options) {
 // ETAPE 5 - AFFICHAGE DU PRIX
 // Affichage correct du prix avec la virgule
 numberWhitComa = (x) => {
-	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',') + " €"
+	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',')
 };
 
 //-----------------------------------------------------------------------------------------------
@@ -99,7 +99,7 @@ btnByeArt.onclick = () => {
 		Option: article_option.value,
 		Prix: article_price.textContent,
 		Photo: article_img.src,
-		qty:1
+		qty: 1
 	}
 
 	// Controle si le panier existe dans le LS
@@ -108,7 +108,7 @@ btnByeArt.onclick = () => {
 	console.log(panier); // donne null
 
 	// Si le panier est null
-	if (localStorage.getItem('panier') == null) {		
+	if (localStorage.getItem('panier') == null) {
 		// recuperer la valeur du tableau panierArray
 		let panierArray = [];
 		// ajouter un produit dans l'array
@@ -127,9 +127,11 @@ btnByeArt.onclick = () => {
 		// mettre à jour le LS
 		localStorage.setItem('panier', JSON.stringify(parsedPanier))
 	}
-	
+	compteurArtictlesPanier();
 }
+//-----------------------------------------------------------------------------------------------
 
 
-//------------------------------------  
-comptArtPanier();
+//-----------------------------------------------------------------------------------------------
+// ETAPE 8 - CALCUL COUT TOTAL
+

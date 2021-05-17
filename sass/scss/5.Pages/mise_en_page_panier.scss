@@ -30,3 +30,24 @@
 		background: ($colour-invalid);
 	}
 }
+
+
+
+
+@media screen and (min-width: 376px) and (max-width:667px)
+
+{
+	.main__container{    
+	  max-width: 667px;
+	}
+}
+
+
+@media screen and (min-width: 667px) 
+
+{
+	.main{    
+	  max-width: 1480px;
+	  margin:auto;
+	}
+}
