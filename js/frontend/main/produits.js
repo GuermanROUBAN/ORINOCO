@@ -44,7 +44,7 @@ function structureProduit(parametre) {
 					${colors}
 					</select>
 				</form>
-				<h2 class="article_price" >Prix:</h2><p><span id="article_price">${numberWhitComa(parametre.price)}</span></p>
+				<h2 class="article_price" >Prix:</h2><p><span id="article_price">${numberWhitComa(parametre.price)} €</span></p>
 				<div class="${parametre.imageUrl}">
 						<img class="article_img" id="article_img" src="${parametre.imageUrl}" />
 				</div>
@@ -128,6 +128,7 @@ btnByeArt.onclick = () => {
 		localStorage.setItem('panier', JSON.stringify(parsedPanier))
 	}
 	compteurArtictlesPanier();
+	popupConf();
 }
 //-----------------------------------------------------------------------------------------------
 

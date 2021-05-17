@@ -39,12 +39,25 @@ function cartNumbers() {
 
 
 function compteurArtictlesPanier() {
+	// On va chercher le LS
 	let localPanier = JSON.parse(localStorage.getItem("panier"));
-	if (localPanier!=null) {
+	// On regarde s'il est null ou pas car si null donne une erreur
+	if (localPanier != null) {
+		// on mesure la longeur de la KEY panier
 		let artDansPanier = localPanier.length;
 		console.log(artDansPanier);
 		console.log(typeof artDansPanier);
+		//on va envoyer les données dans le nav
 		document.querySelector('.nav_panier span').textContent = artDansPanier;
 	}
 }
 
+function popupConf() {
+	if (window.confirm("L'article: " + article_name.textContent + " option: " + "'" + article_option.value + "'" + " a bien été ajouté à votre panier. Appuyez sur OK pour aller au panier ou ANNULER pour revenir à l'acceuil"))
+	{
+		window.location.href = "panier.html";
+	}
+	else {
+		window.location.href = "/index.html";
+	}
+}
