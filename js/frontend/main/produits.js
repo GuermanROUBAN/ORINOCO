@@ -100,6 +100,7 @@ btnByeArt.onclick = () => {
 		Description: article_description.textContent,
 		Option: article_option.value,
 		Prix: article_price.textContent,
+		PrixTotal: article_price.textContent,
 		Photo: article_img.src,
 		qty: 1
 	}

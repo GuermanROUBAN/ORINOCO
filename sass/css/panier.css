@@ -316,6 +316,18 @@ h1 {
   color: #bcce57;
 }
 
+input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px;
+}
+
+input:hover {
+  background: #b9906ade;
+}
+
 .btnFinalisationPanier {
   display: flex;
   width: 20%;

@@ -61,3 +61,4 @@ function popupConf() {
 		window.location.href = "/index.html";
 	}
 }
+
