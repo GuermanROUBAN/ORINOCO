@@ -151,7 +151,6 @@ function supprimerProduit(index) {
 	window.location.reload();
  }
 
-
 function supprimerPanier() {
 	localStorage.clear();
 	window.location.reload();

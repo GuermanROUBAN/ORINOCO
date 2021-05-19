@@ -37,6 +37,9 @@
 			<div id="panier_somme_totale"class="panier_somme_totale">
 				<h2>Montant de votre commande:</h2>	
 				<h2 class="resultat_panier" class="resultat_panier">00,00</h2>
+				<div class="annulation_panier">
+					<button class="btnAnnulationPanier" onclick="supprimerPanier()">Supprimer tous les articles</button>
+				</div>
 			</div>
 			<div id="vos coordonnees" class="coordonnees">
 				<form action="#" methode="post" enctype="multipart/form-data">
@@ -86,7 +89,6 @@
 								required></textarea>
 						</div>
 						<div class="btnFinalisationPanier">
-							<button class="btnAnnulationPanier">Annuler</button>
 							<button class="btnValidationPanier">Envoyer</button>
 						</div>
 					</fieldset>
