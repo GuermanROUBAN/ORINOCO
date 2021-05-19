@@ -36,12 +36,12 @@ const showArticles = async () => {
 						<p class="article-price">${numberWhitComa(teddy.price)} €</p>
 						</br></br>
 						
-						<a href="/html/produits.html?id=${teddy._id}">
+						<a href="/html/produit.html?id=${teddy._id}">
 						<img class="article-img" src="${teddy.imageUrl}" />
 						</a>
 					
 						</br></br>					
-						<a href="/html/produits.html?id=${teddy._id}">
+						<a href="/html/produit.html?id=${teddy._id}">
 						<div>
 						<button id="btnShowArt" class="btnShowArt">Voir le produit</button>
 						</div>

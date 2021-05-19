@@ -31,22 +31,22 @@ showProduit();
 //-----------------------------------------------------------------------------------------------
 // ETAPE 3 - LE CHARGEMENT DU HTML
 
-function structureProduit(parametre) {
-	let colors = showOptions(parametre.colors);
+function structureProduit(produit, index) {
+	let colors = showOptions(produit.colors);
 	return `
 	<div id="selected_article">
-				<h2 class="article_name">Nom du produit:</h2><p><span id="article_name">${parametre.name}</span></p>
-				<h2 class="article_id">Id du produit:</h2><p><span id="article_id">${parametre._id}</span></p>
-				<h2 class="article_description">Description du produit:</h2><p><span id="article_description">${parametre.description}</span></p>
+				<h2 class="article_name">Nom du produit:</h2><p><span id="article_name">${produit.name}</span></p>
+				<h2 class="article_id">Id du produit:</h2><p><span id="article_id">${produit._id}</span></p>
+				<h2 class="article_description">Description du produit:</h2><p><span id="article_description">${produit.description}</span></p>
 				<form>
 					<label for="article_option"><h3>Choisir la couleur:</h3></label>
 					<select name="article_option" id="article_option">
 					${colors}
 					</select>
 				</form>
-				<h2 class="article_price" >Prix:</h2><p><span id="article_price">${numberWhitComa(parametre.price)} €</span></p>
-				<div class="${parametre.imageUrl}">
-						<img class="article_img" id="article_img" src="${parametre.imageUrl}" />
+				<h2 class="article_price" >Prix:</h2><p><span id="article_price">${numberWhitComa(produit.price)} €</span></p>
+				<div class="${produit.imageUrl}">
+						<img class="article_img" id="article_img" src="${produit.imageUrl}" />
 				</div>
 			</div>
 	`

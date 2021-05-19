@@ -298,50 +298,32 @@ h1 {
   display: none;
 }
 
-.panier-article {
+#main {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: auto;
-  background: #b9906ade;
+  flex-direction: column;
 }
 
-.panier_somme_totale {
+#selected_article {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
   background: #5f4b26de;
+  margin: auto;
+  width: 80%;
 }
-.panier_somme_totale h2 {
-  margin: 20px;
+#selected_article p {
   color: #bcce57;
 }
-
-input {
-  border: none;
-  outline: none;
-  padding: 5px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px;
-}
-
-input:hover {
-  background: #b9906ade;
-}
-
-.btnFinalisationPanier {
+#selected_article img {
   display: flex;
-  width: 20%;
   margin: auto;
-}
-.btnFinalisationPanier .btnAnnulationPanier {
-  margin: 0 20px;
-  background: #DB464B;
-}
-
-@media screen and (min-width: 376px) and (max-width: 667px) {
-  .main__container {
-    max-width: 667px;
-  }
+  width: 100%;
+  border-radius: 25px;
+  object-fit: cover;
 }
 
-/*# sourceMappingURL=panier.css.map */
+#btnByeArt {
+  margin: auto;
+  width: 80%;
+}
+
+/*# sourceMappingURL=produits.css.map */

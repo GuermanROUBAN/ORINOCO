@@ -23,7 +23,7 @@ function showPanier() {
 
 				// pour écrire du HTML dans JS
 				`
-					<div class="panier">
+					<div class="panier-article">
 						<div class="panier-string">
 							<div class="panier-string-presentation">
 								<img class="panier-img" src="${teddies.imageUrl}" />												

@@ -2,12 +2,13 @@
 	display:none;
 }
 
-.panier{
+.panier-article{
 	display:flex;
 	flex-wrap: wrap;
 	width: 100%;
 	margin: auto;
 	background: ($colour-nav);
+
 }
 
 .panier_somme_totale{
