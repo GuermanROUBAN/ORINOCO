@@ -26,22 +26,22 @@ function showPanier() {
 					<div class="panier">
 						<div class="panier-string">
 							<div class="panier-string-presentation">
-								<img class="panier-img" src="${teddies.Photo}" />												
+								<img class="panier-img" src="${teddies.imageUrl}" />												
 								<h2 class="panier-name">
 
-								${teddies.Nom}</h2>
-								<!--<h2 class="panier-id">${teddies.Id}</h2>-->
+								${teddies.name}</h2>
+								<!--<h2 class="panier-id">${teddies._id}</h2>-->
 								<p class="panier-description">
 
-								${teddies.Description}</p>
+								${teddies.description}</p>
 							</div>
 						<div class="panier-string-calcul">
 								<p class="calcul-price">
-								${teddies.Prix}</p>
-								<a href="/html/produits.html?id=${teddies.Id}"></a>
+								${teddies.price}</p>
+								<a href="/html/produits.html?id=${teddies._id}"></a>
 								
-								<input type="number" data-id="${teddies.Id}" class="qtyOfproduct" value="${teddies.qty}" style="width:40px" min="1">
-								<p class="calcul-price-sum">${teddies.Prix}</p>
+								<input type="number" data-id="${teddies._id}" class="qtyOfproduct" value="${teddies.qty}" style="width:40px" min="1">
+								<p class="calcul-price-sum">${teddies.price}</p>
 								<button id="btnDeletArt" class="btnDeletArt">Supprimer</button>
 							</div>
 						</div>
@@ -90,9 +90,9 @@ for (let i = 0; i < inputPanierLength; i++) {
 
 		for (let j = 0; j < localStoragePushLength; j++) {
 
-			if (localStoragePush[j]['Id'] == idProduit) {
+			if (localStoragePush[j]['_id'] == idProduit) {
 				
-				localStoragePush[j]['PrixTotal'] = calculPrix
+				localStoragePush[j]['totalprice'] = calculPrix
 
 				localStoragePush[j]['qty'] = this.value
 			}
@@ -126,7 +126,7 @@ function affichagePrixTotal() {
 	let calPrixTotalLength = calPrixTotal.length;
 	for (let i = 0; i < calPrixTotalLength; i++) {
 		// Le compteur recupere l'iteration de la variable prix
-		compteurPrix += parseInt(localPanier2[i]['PrixTotal'])
+		compteurPrix += parseInt(localPanier2[i]['totalprice'])
 	}
 	console.log(compteurPrix); // affiche le prix total des articles
 	document.querySelector('.resultat_panier').innerHTML = compteurPrix;

@@ -95,13 +95,13 @@ btnByeArt.onclick = () => {
 
 	let produit =
 	{
-		Nom: article_name.textContent,
-		Id: article_id.textContent,
-		Description: article_description.textContent,
-		Option: article_option.value,
-		Prix: article_price.textContent,
-		PrixTotal: article_price.textContent,
-		Photo: article_img.src,
+		name: article_name.textContent,
+		_id: article_id.textContent,
+		description: article_description.textContent,
+		option: article_option.value,
+		price: article_price.textContent,
+		totalprice: article_price.textContent,
+		imageUrl: article_img.src,
 		qty: 1
 	}
 
@@ -135,6 +135,7 @@ btnByeArt.onclick = () => {
 	//compteurArtictlesPanier();//affiche le nombre d'articles dans le panier (depuis tools.js)
 }
 //-----------------------------------------------------------------------------------------------
+
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 8 - CALCUL COUT TOTAL
