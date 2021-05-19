@@ -45,8 +45,8 @@ function compteurArtictlesPanier() {
 	if (localPanier != null) {
 		// on mesure la longeur de la KEY panier
 		let artDansPanier = localPanier.length;
-		console.log(artDansPanier);
-		console.log(typeof artDansPanier);
+		//console.log(artDansPanier);
+		//console.log(typeof artDansPanier);
 		//on va envoyer les données dans le nav
 		document.querySelector('.nav_panier span').textContent = artDansPanier;
 	}

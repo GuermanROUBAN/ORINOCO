@@ -4,8 +4,8 @@
 // On va consulter le panier dans le LS
 let localPanier = JSON.parse(localStorage.getItem("panier"))
 
-console.log(localPanier);
-console.log(typeof localPanier); // Il s'agit d'un Objet avec des Arrays
+//console.log(localPanier);
+//console.log(typeof localPanier); // Il s'agit d'un Objet avec des Arrays
 
 
 if (localPanier != null) {//si la clé existe
@@ -19,7 +19,8 @@ function showPanier() {
 	panier.innerHTML = (// charge le JS dans l'id HTML
 		localPanier //prend les infos dans le LS
 			// traitement de chaque element de l'array avec une fonction
-			.map(teddies => (
+			.map((teddies, index) => (
+				// on demande à la fonction de prendre également en compte l'index pour appliquer dans la fonction supprimer Produit
 
 				// pour écrire du HTML dans JS
 				`
@@ -39,10 +40,9 @@ function showPanier() {
 								<p class="calcul-price">
 								${teddies.price}</p>
 								<a href="/html/produits.html?id=${teddies._id}"></a>
-								
 								<input type="number" data-id="${teddies._id}" class="qtyOfproduct" value="${teddies.qty}" style="width:40px" min="1">
 								<p class="calcul-price-sum">${teddies.price}</p>
-								<button id="btnDeletArt" class="btnDeletArt">Supprimer</button>
+								<button id="btnDeletArt" onclick="supprimerProduit(${index})" class="btnDeletArt">Supprimer</button>
 							</div>
 						</div>
 					</div>
@@ -62,7 +62,7 @@ compteurArtictlesPanier();
 //-----------------------------------------------------------------------------------------------
 // On s'adresse à tous les INPUTS
 let inputPanier = document.querySelectorAll('.qtyOfproduct');
-console.log(inputPanier)
+//console.log(inputPanier)
 
 // On calcul la quantité des INPUTS
 let inputPanierLength = inputPanier.length;
@@ -128,20 +128,31 @@ function affichagePrixTotal() {
 		// Le compteur recupere l'iteration de la variable prix
 		compteurPrix += parseInt(localPanier2[i]['totalprice'])
 	}
-	console.log(compteurPrix); // affiche le prix total des articles
+	//console.log(compteurPrix); // affiche le prix total des articles
 	document.querySelector('.resultat_panier').innerHTML = compteurPrix;
 }
 
 affichagePrixTotal();
 
 
-
-
-/*
 // ETAPE 9 - SUPRESSION DE L'ARTICLE
 
-//Selection de tous les boutons supprimer
-let btnSupArt = document.querySelectorAll('.btnDeletArt');
-console.log(btnSupArt);
-*/
-//
+
+function supprimerProduit(index) {
+
+	console.log("supprimer l'élément numéro", index);
+
+	//suppression produit du LS
+		// On parcourt le localPanier
+	let newPanier = localPanier.filter(elmt => localPanier.indexOf(elmt) != index);
+		//console.log("newPanier", newPanier)
+	localStorage.setItem("panier", JSON.stringify(newPanier));
+	// on met à jour le LS
+	window.location.reload();
+ }
+
+
+function supprimerPanier() {
+	localStorage.clear();
+	window.location.reload();
+}

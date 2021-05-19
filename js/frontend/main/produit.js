@@ -31,8 +31,8 @@ showProduit();
 //-----------------------------------------------------------------------------------------------
 // ETAPE 3 - LE CHARGEMENT DU HTML
 
-function structureProduit(produit, index) {
-	let colors = showOptions(produit.colors);
+function structureProduit(produit) {
+	let colors = showOptions(produit.colors,);
 	return `
 	<div id="selected_article">
 				<h2 class="article_name">Nom du produit:</h2><p><span id="article_name">${produit.name}</span></p>
@@ -103,6 +103,7 @@ btnByeArt.onclick = () => {
 		totalprice: article_price.textContent,
 		imageUrl: article_img.src,
 		qty: 1
+		
 	}
 
 	// Controle si le panier existe dans le LS
