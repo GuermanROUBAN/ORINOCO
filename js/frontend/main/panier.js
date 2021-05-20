@@ -49,7 +49,7 @@ function showPanier() {
 				`
 			)).join('')//pour eviter les virgules
 	);
-// data-id = attribut data de l'input (avec nom id ) permet de saisir la donnée 'teddies'
+	// data-id = attribut data de l'input (avec nom id ) permet de saisir la donnée 'teddies'
 };
 
 // ETAPE 3 - 
@@ -91,7 +91,7 @@ for (let i = 0; i < inputPanierLength; i++) {
 		for (let j = 0; j < localStoragePushLength; j++) {
 
 			if (localStoragePush[j]['_id'] == idProduit) {
-				
+
 				localStoragePush[j]['totalprice'] = calculPrix
 
 				localStoragePush[j]['qty'] = this.value
@@ -100,7 +100,7 @@ for (let i = 0; i < inputPanierLength; i++) {
 
 		// On Stringify l'objet qu'on a modifié
 		localStorage.setItem('panier', JSON.stringify(localStoragePush))
-		
+
 		// On execute la fonction d'affichage 
 		affichagePrixTotal();
 
@@ -135,7 +135,7 @@ function affichagePrixTotal() {
 affichagePrixTotal();
 
 
-// ETAPE 9 - SUPRESSION DE L'ARTICLE
+// ETAPE 6 - SUPRESSION DE L'ARTICLE
 
 
 function supprimerProduit(index) {
@@ -143,15 +143,116 @@ function supprimerProduit(index) {
 	console.log("supprimer l'élément numéro", index);
 
 	//suppression produit du LS
-		// On parcourt le localPanier
+	// On parcourt le localPanier
 	let newPanier = localPanier.filter(elmt => localPanier.indexOf(elmt) != index);
-		//console.log("newPanier", newPanier)
+	//console.log("newPanier", newPanier)
 	localStorage.setItem("panier", JSON.stringify(newPanier));
 	// on met à jour le LS
 	window.location.reload();
- }
+}
 
 function supprimerPanier() {
 	localStorage.clear();
 	window.location.reload();
 }
+
+
+//-----------------------------------------------------------------------------------------------
+// ETAPE 7 - FORMULAIRE DE COMMANDE 
+
+// Afficher formulaire HTML
+
+const AfficherFormulaireHTML = () => {
+	// selection de l'element du Dom pour le positionnement du formulaire
+	const injectionFormulaire = document.querySelector('#formulaire');
+
+	const structureFormulaire = `
+	<div id="formulaireCommande" class="formulaireCommande">
+	<form action="#" methode="post" enctype="multipart/form-data">
+		<fieldset>
+			<legend>Merci de bien vouloir remplir notre formulaire</legend>
+			<div class="form-group">
+				<label for="firstName">Prénom</label> <abbr title="Merci de saisir ici votre prénom">*</abbr>
+				<input type="text" id="firstName" name="fistName" value="" class="form-control" required>
+			</div>
+
+			<div class="form-group">
+				<label for="lastName">Nom</label> <abbr title="Merci de saisir ici votre nom">*</abbr>
+				<input type="text" id="lastName" name="lastName" class="form-control" required>
+			</div>
+
+			<div class="form-group">
+				<label for="address">Adresse</label> <abbr title="Merci de saisir ici votre adresse">*</abbr>
+				<input type="text" id="address" name="address" class="form-control" required>
+			</div>
+
+			<div class="form-group">
+				<label for="city">City</label> <abbr title="Merci de saisir ici votre ville">*</abbr>
+				<input type="text" id="city" name="city" class="form-control" required>
+			</div>
+
+			<div class="form-group">
+				<label for="email">Votre adresse e-mail</label>
+				<abbr title="ex: utilisateur@internet.com">*</abbr>
+				<input type="email" id="email" name="email" class="form-control" required />
+			</div>
+
+			<div class="btnFinalisationPanier">
+				<button id="btnValidationPanier" "class="btnValidationPanier" type="submit" name="btnValidationPanier">Valider la
+					commande</button>
+			</div>
+		</fieldset>
+	</form>
+</div>
+`;
+
+	// Injection du formulaire
+	injectionFormulaire.insertAdjacentHTML("afterend", structureFormulaire);
+}
+
+// Affichage du formulaire
+AfficherFormulaireHTML();
+
+// Selection du bouton pour envoi du formulaire
+const btnEnvoyerFormulaire = document.querySelector("#btnValidationPanier");
+
+
+//-----------------------------------------------------------------------------------------------
+// ETAPE 8 - addEventListener
+
+btnEnvoyerFormulaire.addEventListener("click", () => {
+	// Récuperation des valeurs du formulaire pour les mettre deans le LS
+
+	// On cree la Key et on enregistre la value
+	localStorage.setItem("firstName", document.querySelector("#firstName").value);
+	localStorage.setItem("lastName", document.querySelector("#lastName").value);
+	localStorage.setItem("address", document.querySelector("#address").value);
+	localStorage.setItem("city", document.querySelector("#city").value);
+	localStorage.setItem("email", document.querySelector("#email").value);
+	//console.log(document.querySelector("#firstName").value); // Montre que la value a ete bien prise en compte
+	
+	
+	// Mettre les valeurs du formulaire deans un objet
+
+	const formulaire = {
+		firstName: localStorage.getItem("firstName"),
+		lastName: localStorage.getItem("lastName"),
+		address: localStorage.getItem("address"),
+		city: localStorage.getItem("city"),
+		email: localStorage.getItem("email"),
+	}
+
+	onsole.log(formulaire, 'formulaire');
+
+	// Mettre les values du formulaire et mettre les produits sélectionnés dans un objet à envoyer vers le serveur
+	const aEnvoyer = {
+		localPanier, 
+		formulaire
+	}
+	
+	console.log(aEnvoyer, 'aEnvoyer');
+})
+
+
+
+
