@@ -49,30 +49,8 @@
 
 
 
-input{
-	border:none;
-	outline:none;
-	padding:5px;
-	border-radius: 5px;
-	box-shadow:0 2px 5px;
-}
-
-input:hover{
-	background: ($colour-nav);
-}
 
 
-.btnFinalisationPanier{
-	display:flex;
-	width:100%;
-	button{
-		width:20%;
-		margin: auto;
-		a{
-			text-align: center;
-		}
-	}
-}
 
 
 
