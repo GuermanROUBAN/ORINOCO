@@ -11,15 +11,43 @@
 
 }
 
+
+//-----FORMULAIRE
+
 .panier_somme_totale{
 	display:flex;
-	justify-content: flex-end;
+	flex-wrap: wrap;
 	background: ($colour-carte);
-	h2{
-		margin:20px;
-		color:($colour-secondary)
+	.recapitulatif_panier{
+	display: flex;
+	width: 100%;
+	height:60px;
+	align-items: center;
+	color:($colour-secondary);
+		.resultat_panier_texte{
+		width:90%;
+	}
+		.resultat_panier{
+		width:20%;
+	}	
+	}
+	.annulation_panier{
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		button{
+			width:20%;
+			margin: auto;
+			background:($colour-invalid);
+			a{
+				text-align: center;
+			}
+		}
 	}
 }
+
+
+
 
 input{
 	border:none;
@@ -36,11 +64,13 @@ input:hover{
 
 .btnFinalisationPanier{
 	display:flex;
-	width:20%;
-	margin:auto;
-	.btnAnnulationPanier{
-		margin:0 20px;
-		background: ($colour-invalid);
+	width:100%;
+	button{
+		width:20%;
+		margin: auto;
+		a{
+			text-align: center;
+		}
 	}
 }
 

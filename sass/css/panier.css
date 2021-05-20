@@ -308,12 +308,34 @@ h1 {
 
 .panier_somme_totale {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
   background: #5f4b26de;
 }
-.panier_somme_totale h2 {
-  margin: 20px;
+.panier_somme_totale .recapitulatif_panier {
+  display: flex;
+  width: 100%;
+  height: 60px;
+  align-items: center;
   color: #bcce57;
+}
+.panier_somme_totale .recapitulatif_panier .resultat_panier_texte {
+  width: 90%;
+}
+.panier_somme_totale .recapitulatif_panier .resultat_panier {
+  width: 20%;
+}
+.panier_somme_totale .annulation_panier {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.panier_somme_totale .annulation_panier button {
+  width: 20%;
+  margin: auto;
+  background: #DB464B;
+}
+.panier_somme_totale .annulation_panier button a {
+  text-align: center;
 }
 
 input {
@@ -330,12 +352,14 @@ input:hover {
 
 .btnFinalisationPanier {
   display: flex;
+  width: 100%;
+}
+.btnFinalisationPanier button {
   width: 20%;
   margin: auto;
 }
-.btnFinalisationPanier .btnAnnulationPanier {
-  margin: 0 20px;
-  background: #DB464B;
+.btnFinalisationPanier button a {
+  text-align: center;
 }
 
 @media screen and (min-width: 376px) and (max-width: 667px) {
