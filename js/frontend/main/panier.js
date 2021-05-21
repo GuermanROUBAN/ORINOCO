@@ -120,7 +120,7 @@ function affichagePrixTotal() {
 
 	// Selection de tous les chapmps prix
 	let calPrixTotal = document.querySelectorAll('.calcul-price-sum');
-	console.log(calPrixTotal);
+	//console.log(calPrixTotal);
 
 	// Calcul de la longeur du champs prix
 	let calPrixTotalLength = calPrixTotal.length;
@@ -220,39 +220,58 @@ const btnEnvoyerFormulaire = document.querySelector("#btnValidationPanier");
 //-----------------------------------------------------------------------------------------------
 // ETAPE 8 - addEventListener
 
-btnEnvoyerFormulaire.addEventListener("click", () => {
-	// Récuperation des valeurs du formulaire pour les mettre deans le LS
+btnEnvoyerFormulaire.addEventListener("click", (e) => {
+	e.preventDefault();
 
-	// On cree la Key et on enregistre la value
-	localStorage.setItem("firstName", document.querySelector("#firstName").value);
-	localStorage.setItem("lastName", document.querySelector("#lastName").value);
-	localStorage.setItem("address", document.querySelector("#address").value);
-	localStorage.setItem("city", document.querySelector("#city").value);
-	localStorage.setItem("email", document.querySelector("#email").value);
-	//console.log(document.querySelector("#firstName").value); // Montre que la value a ete bien prise en compte
-	
-	
-	// Mettre les valeurs du formulaire deans un objet
+// Création d'une classe pour fabriquer l'objet dans lequel iront
+// les valuses du formulaire
 
-	const formulaire = {
-		firstName: localStorage.getItem("firstName"),
-		lastName: localStorage.getItem("lastName"),
-		address: localStorage.getItem("address"),
-		city: localStorage.getItem("city"),
-		email: localStorage.getItem("email"),
+class Formulaire{
+		constructor() {
+			this.firstName = document.querySelector("#firstName").value;
+			this.lastName = document.querySelector("#lastName").value;
+			this.address = document.querySelector("#address").value;
+			this.city = document.querySelector("#city").value;
+			this.email = document.querySelector("#email").value;
+			
 	}
+}
 
-	onsole.log(formulaire, 'formulaire');
+// Appel de l'instance de classe Formulaire pour créer l'objet formulaireValues
+	const formulaireValues = new Formulaire();
+
+	// Mettre l'objet "formulaireValues" dans LS
+	localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
 
 	// Mettre les values du formulaire et mettre les produits sélectionnés dans un objet à envoyer vers le serveur
 	const aEnvoyer = {
 		localPanier, 
-		formulaire
+		formulaireValues
 	}
 	
 	console.log(aEnvoyer, 'aEnvoyer');
-})
+}) 
 
+//-----------------------------------------------------------------------------------------------
+// ETAPE 9 - Mettre le contenu du local storage dans les champs du formulaire
 
+//Allez chercher la key formulaireValues et la mettre dans une vairable
 
+const dataLocalStorage = localStorage.getItem("formulaireValues");
+//console.log(formulaireValues); // formulaireValues is not defined
 
+// Convertir la chaine de caracteres en objet javascript
+const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
+
+//fonction pour remplir les champs du formulaire avec les données du LS
+
+function remplirChampInputDepuisLocalStorage(input) {
+	document.querySelector(`#${input}`).value = dataLocalStorageObjet[input];
+};
+remplirChampInputDepuisLocalStorage("firstName");
+remplirChampInputDepuisLocalStorage("lastName");
+remplirChampInputDepuisLocalStorage("address");
+remplirChampInputDepuisLocalStorage("city");
+remplirChampInputDepuisLocalStorage("email");
+
+console.log(dataLocalStorageObjet);
