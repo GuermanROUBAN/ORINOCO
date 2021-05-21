@@ -198,7 +198,7 @@ const AfficherFormulaireHTML = () => {
 			</div>
 
 			<div class="btnFinalisationPanier">
-				<button id="btnValidationPanier" "class="btnValidationPanier" type="submit" name="btnValidationPanier">Valider la
+				<button id="btnValidationPanier" "class="btnValidationPanier" name="btnValidationPanier">Valider la
 					commande</button>
 			</div>
 		</fieldset>
@@ -223,34 +223,146 @@ const btnEnvoyerFormulaire = document.querySelector("#btnValidationPanier");
 btnEnvoyerFormulaire.addEventListener("click", (e) => {
 	e.preventDefault();
 
-// Création d'une classe pour fabriquer l'objet dans lequel iront
-// les valuses du formulaire
+	// Création d'une classe pour fabriquer l'objet dans lequel iront
+	// les valuses du formulaire
 
-class Formulaire{
+	class Formulaire {
 		constructor() {
 			this.firstName = document.querySelector("#firstName").value;
 			this.lastName = document.querySelector("#lastName").value;
 			this.address = document.querySelector("#address").value;
 			this.city = document.querySelector("#city").value;
 			this.email = document.querySelector("#email").value;
-			
+		}
 	}
-}
 
-// Appel de l'instance de classe Formulaire pour créer l'objet formulaireValues
+	// Appel de l'instance de classe Formulaire pour créer l'objet formulaireValues
 	const formulaireValues = new Formulaire();
 
-	// Mettre l'objet "formulaireValues" dans LS
-	localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+	//-----------------------------------------------------------------------------------------------
+	// ETAPE 9 - Validation du formulaire
+	// Expression de fonction
+
+		// Message d'alerte en cas de mauvaise saisie dans le formulaire
+	const textAlert = (value) => {
+		return `Attention champs ${value}:  \n - vide (minimum 3 caractères necessaires) \n - comporte des caractères non autorisés (chiffres / symboles)`;
+	}
+
+		// Saisie autorisée pour le nom des villes
+	const regExPrenomNom = (value) => {
+		return /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/.test(value)
+	}
+
+		// Saisie autorisée pour le nom des villes
+	const regExVille = (value) => {
+		return /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/.test(value)
+	}
+
+	// Saisie autorisée pour l'adresse'
+	const regExAdresse= (value) => {
+		return /^[a-zA-Z0-9\s,'-]*$/.test(value)
+	}
+
+
+	// Saisie autorisée pour l'email
+	const regExEmail= (value) => {
+		return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
+	}
+
+	
+		// Fonctions de control des champs de saisie du formulaire 
+
+	function prenomControl() {
+		// controle du prénom
+		const lePrenom = formulaireValues.firstName;
+		//accepte des MAJ et miuscules entre 3 et 20 caracteres
+		if (regExPrenomNom(lePrenom)) {
+			//console.log("OK");
+			return true;
+		} else {
+			//console.log("KO");
+			alert(textAlert("Prénom"));
+			return false;
+		}
+	}
+	
+	function nomControl() {
+		// controle du nom
+		const leNom = formulaireValues.lastName;
+		//accepte des MAJ et miuscules entre 3 et 20 caracteres
+		if (regExPrenomNom(leNom)) {
+			//console.log("OK");
+			return true;
+		} else {
+			//console.log("KO");
+			alert(textAlert("Nom"));
+			return false;
+		}
+	}
+
+		function adresseControl() {
+		// controle de l'adresse
+		const lAdresse = formulaireValues.address;
+		//accepte des MAJ et miuscules entre 3 et 20 caracteres
+		if (regExAdresse(lAdresse)) {
+			//console.log("OK");
+			return true;
+		} else {
+			//console.log("KO");
+			alert(textAlert("Adresse"));
+			return false;
+		}
+	}
+
+	function villeControl() {
+		// controle du ville
+		const laVille = formulaireValues.city;
+		//accepte des MAJ et miuscules entre 3 et 20 caracteres
+		if (regExVille(laVille)) {
+			//console.log("OK");
+			return true;
+		} else {
+			//console.log("KO");
+			alert(textAlert("Ville"));
+			return false;
+		}
+	}
+	
+	function emailControl() {
+		// controle de l'email
+		const lemail = formulaireValues.email;
+		//accepte des MAJ et miuscules entre 3 et 20 caracteres
+		if (regExEmail(lemail)) {
+			//console.log("OK");
+			return true;
+		} else {
+			//console.log("KO");
+			alert("L'email n'est pas valide");
+			return false;
+		}
+	}
+
+	
+
+
+
+	if (prenomControl() && nomControl() && adresseControl() && villeControl() && emailControl()){
+		// Mettre l'objet "formulaireValue0s" dans LS
+		localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+	} else {
+		alert("Veilliez bien remplir le formulaire");
+	}
+
+	//-----------------------------------------------------------------------------------------------
 
 	// Mettre les values du formulaire et mettre les produits sélectionnés dans un objet à envoyer vers le serveur
 	const aEnvoyer = {
-		localPanier, 
+		localPanier,
 		formulaireValues
 	}
-	
+
 	console.log(aEnvoyer, 'aEnvoyer');
-}) 
+})
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 9 - Mettre le contenu du local storage dans les champs du formulaire
@@ -266,7 +378,9 @@ const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
 //fonction pour remplir les champs du formulaire avec les données du LS
 
 function remplirChampInputDepuisLocalStorage(input) {
-	document.querySelector(`#${input}`).value = dataLocalStorageObjet[input];
+	if (dataLocalStorageObjet != null) {
+		document.querySelector(`#${input}`).value = dataLocalStorageObjet[input];
+	}
 };
 remplirChampInputDepuisLocalStorage("firstName");
 remplirChampInputDepuisLocalStorage("lastName");
@@ -274,4 +388,7 @@ remplirChampInputDepuisLocalStorage("address");
 remplirChampInputDepuisLocalStorage("city");
 remplirChampInputDepuisLocalStorage("email");
 
-console.log(dataLocalStorageObjet);
+//console.log(dataLocalStorageObjet);
+
+//-----------------------------------------------------------------------------------------------
+// ETAPE 10 -  

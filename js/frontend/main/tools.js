@@ -1,22 +1,3 @@
-/*
-function cl(a) {
-	console.log(a)
-}
-*/
-
-
-
-/*
-let carts = document.querySelectorAll(".btnByeArt");
-
-
-for (let i = 0; i < carts.length; i++){
-	carts[i].addEventListener('click', () => {
-		cartNumbers();
-	})
-}	
-
-*/
 
 function onLoadCartNumbers() {
 	let productNumbers = localStorage.getItem("cartNumbers");
@@ -61,4 +42,5 @@ function popupConf() {
 		window.location.href = "/index.html";
 	}
 }
+
 
