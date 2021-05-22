@@ -246,12 +246,15 @@ header img {
 
 form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  width: 60%;
+  margin: auto;
+  justify-content: center;
   align-items: center;
-  background: chartreuse;
 }
 form legend {
   margin-bottom: 20px;
+  text-align: center;
 }
 form input {
   width: 60vw;
@@ -263,6 +266,10 @@ form input {
 }
 form input:hover {
   background: #b9906ade;
+}
+form .infoChampManquant {
+  font-weight: 900;
+  color: #DB464B;
 }
 form .btnFinalisationPanier {
   display: flex;

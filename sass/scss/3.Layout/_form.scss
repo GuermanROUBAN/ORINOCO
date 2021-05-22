@@ -1,12 +1,16 @@
 //Formulaire page panier
 
 form{
-	display: flex;
-	flex-direction: column;
+	display:flex;
+	flex-wrap: wrap;
+	width: 60%;
+	margin: auto;
+	justify-content: center;
 	align-items: center;
-	background: chartreuse;
+	
 	legend{
 		margin-bottom:20px;
+		text-align: center;
 	}
 	
 	input{
@@ -20,6 +24,11 @@ form{
 	
 	input:hover{
 		background: ($colour-nav);
+	}
+
+	.infoChampManquant{
+		font-weight: 900;
+		color: ($colour-invalid);
 	}
 	
 	.btnFinalisationPanier{

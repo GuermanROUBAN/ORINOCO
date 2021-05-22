@@ -172,27 +172,27 @@ const AfficherFormulaireHTML = () => {
 		<fieldset>
 			<legend>Merci de bien vouloir remplir notre formulaire</legend>
 			<div class="form-group">
-				<label for="firstName">Prénom</label> <abbr title="Merci de saisir ici votre prénom">*</abbr>
+				<label for="firstName">Prénom</label> <span id="prenomManquant" class="infoChampManquant"></span> <abbr title="Merci de saisir ici votre prénom">*</abbr>
 				<input type="text" id="firstName" name="fistName" value="" class="form-control" required>
 			</div>
 
 			<div class="form-group">
-				<label for="lastName">Nom</label> <abbr title="Merci de saisir ici votre nom">*</abbr>
+				<label for="lastName">Nom</label> <span id="nomManquant" class="infoChampManquant"></span> <abbr title="Merci de saisir ici votre nom">*</abbr>
 				<input type="text" id="lastName" name="lastName" class="form-control" required>
 			</div>
 
 			<div class="form-group">
-				<label for="address">Adresse</label> <abbr title="Merci de saisir ici votre adresse">*</abbr>
+				<label for="address">Adresse</label><span id="adresseManquant" class="infoChampManquant"></span><abbr title="Merci de saisir ici votre adresse">*</abbr>
 				<input type="text" id="address" name="address" class="form-control" required>
 			</div>
 
 			<div class="form-group">
-				<label for="city">City</label> <abbr title="Merci de saisir ici votre ville">*</abbr>
+				<label for="city">City</label><span id="villeManquant" class="infoChampManquant"></span><abbr title="Merci de saisir ici votre ville">*</abbr>
 				<input type="text" id="city" name="city" class="form-control" required>
 			</div>
 
 			<div class="form-group">
-				<label for="email">Votre adresse e-mail</label>
+				<label for="email">Votre adresse e-mail</label><span id="emailManquant" class="infoChampManquant"></span>
 				<abbr title="ex: utilisateur@internet.com">*</abbr>
 				<input type="email" id="email" name="email" class="form-control" required />
 			</div>
@@ -243,72 +243,91 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 	// ETAPE 9 - Validation du formulaire
 	// Expression de fonction
 
-		// Message d'alerte en cas de mauvaise saisie dans le formulaire
+	// Message d'alerte en cas de mauvaise saisie dans le formulaire
 	const textAlert = (value) => {
 		return `Attention champs ${value}:  \n - vide (minimum 3 caractères necessaires) \n - comporte des caractères non autorisés (chiffres / symboles)`;
 	}
 
-		// Saisie autorisée pour le nom des villes
+	// Saisie autorisée pour le nom des villes
 	const regExPrenomNom = (value) => {
 		return /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/.test(value)
 	}
 
-		// Saisie autorisée pour le nom des villes
+	// Saisie autorisée pour le nom des villes
 	const regExVille = (value) => {
 		return /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/.test(value)
 	}
 
 	// Saisie autorisée pour l'adresse'
-	const regExAdresse= (value) => {
+	const regExAdresse = (value) => {
 		return /^[a-zA-Z0-9\s,'-]*$/.test(value)
 	}
 
 
 	// Saisie autorisée pour l'email
-	const regExEmail= (value) => {
+	const regExEmail = (value) => {
 		return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
 	}
 
-	
-		// Fonctions de control des champs de saisie du formulaire 
+	/*
+	// Fonction pour gérer l'affichage du texte de validation input
+	function dataChampManquantTexteVide(querySelectorId) {
+		document.querySelector(`#${querySelectorId}`).textContent = "";
+	};
 
+	function dataChampManquantTexte(querySelectorId) {
+		document.querySelector(`#${querySelectorId}`).textContent = "Merci de remplir ce champ";
+	};
+	*/
+
+
+
+	
+	// Fonctions de control des champs de saisie du formulaire 
 	function prenomControl() {
 		// controle du prénom
 		const lePrenom = formulaireValues.firstName;
 		//accepte des MAJ et miuscules entre 3 et 20 caracteres
 		if (regExPrenomNom(lePrenom)) {
 			//console.log("OK");
+			//dataChampManquantTexteVide("prenomManquant");
 			return true;
 		} else {
 			//console.log("KO");
+			// affichage message texte dans l'input
+			//dataChampManquantTexte("prenomManquant");
 			alert(textAlert("Prénom"));
 			return false;
 		}
 	}
-	
+
 	function nomControl() {
 		// controle du nom
 		const leNom = formulaireValues.lastName;
 		//accepte des MAJ et miuscules entre 3 et 20 caracteres
 		if (regExPrenomNom(leNom)) {
 			//console.log("OK");
+			//dataChampManquantTexteVide("nomManquant");
 			return true;
 		} else {
 			//console.log("KO");
+			//dataChampManquantTexte("nomManquant");
 			alert(textAlert("Nom"));
 			return false;
 		}
 	}
 
-		function adresseControl() {
+	function adresseControl() {
 		// controle de l'adresse
 		const lAdresse = formulaireValues.address;
 		//accepte des MAJ et miuscules entre 3 et 20 caracteres
 		if (regExAdresse(lAdresse)) {
 			//console.log("OK");
+			//dataChampManquantTexteVide("adresseManquant");
 			return true;
 		} else {
 			//console.log("KO");
+			//dataChampManquantTexte("adresseManquant");
 			alert(textAlert("Adresse"));
 			return false;
 		}
@@ -320,33 +339,33 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 		//accepte des MAJ et miuscules entre 3 et 20 caracteres
 		if (regExVille(laVille)) {
 			//console.log("OK");
+			//dataChampManquantTexteVide("villeManquant");
 			return true;
 		} else {
 			//console.log("KO");
+			//dataChampManquantTexte("villeManquant");
 			alert(textAlert("Ville"));
 			return false;
 		}
 	}
-	
+
 	function emailControl() {
 		// controle de l'email
 		const lemail = formulaireValues.email;
 		//accepte des MAJ et miuscules entre 3 et 20 caracteres
 		if (regExEmail(lemail)) {
 			//console.log("OK");
+			//dataChampManquantTexteVide("emailManquant");
 			return true;
 		} else {
 			//console.log("KO");
+			//dataChampManquantTexte("emailManquant");
 			alert("L'email n'est pas valide");
 			return false;
 		}
 	}
 
-	
-
-
-
-	if (prenomControl() && nomControl() && adresseControl() && villeControl() && emailControl()){
+	if (prenomControl() && nomControl() && adresseControl() && villeControl() && emailControl()) {
 		// Mettre l'objet "formulaireValue0s" dans LS
 		localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
 	} else {
@@ -365,7 +384,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 })
 
 //-----------------------------------------------------------------------------------------------
-// ETAPE 9 - Mettre le contenu du local storage dans les champs du formulaire
+// ETAPE 10 - Mettre le contenu du local storage dans les champs du formulaire
 
 //Allez chercher la key formulaireValues et la mettre dans une vairable
 
@@ -391,4 +410,4 @@ remplirChampInputDepuisLocalStorage("email");
 //console.log(dataLocalStorageObjet);
 
 //-----------------------------------------------------------------------------------------------
-// ETAPE 10 -  
+// ETAPE 11 -  
