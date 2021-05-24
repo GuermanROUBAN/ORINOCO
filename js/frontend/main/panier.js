@@ -13,6 +13,9 @@ if (localPanier != null) {//si la clé existe
 	showPanier(); //charge la fonction avec le code HTML
 }
 
+console.log(panier, 'panier search');
+
+
 // ETAPE 2 - 
 //--------------------------------------------------------------------------------
 function showPanier() {
@@ -58,12 +61,15 @@ function showPanier() {
 
 let oursPanier = localStorage.getItem("panier")
 let ours = JSON.parse(oursPanier)
-//console.log(ours)
 let listeIdPanier = [];
-for (let i = 0; i < ours.length; i++) {
-	listeOursPanier = ours[i]
-	listeIdPanier.push(listeOursPanier._id)
+if (ours != null) {
+	//console.log(ours)
+	for (let i = 0; i < ours.length; i++) {
+		listeOursPanier = ours[i]
+		listeIdPanier.push(listeOursPanier._id)
+	}
 }
+
 
 //console.log(listeIdPanier, "listeIdPanier");
 
@@ -381,10 +387,14 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 		}
 	};
 
+
+
 	// Controle la validité du formulaire avant l'envoi dans le LS
 	if (prenomControl() && nomControl() && adresseControl() && villeControl() && emailControl()) {
 		// Mettre l'objet "formulaireValues" dans LS
 		localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+		//localStorage.setItem("prixTotal", JSON.stringify(compteurPrix));
+
 
 		// Mettre les values du formulaire et mettre les produits sélectionnés dans un objet à envoyer vers le serveur
 		const aEnvoyer = {
@@ -396,6 +406,8 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 	} else {
 		alert("Veilliez bien remplir le formulaire");
 	}
+
+
 })
 
 //-----------------------------------------------------------------------------------------------

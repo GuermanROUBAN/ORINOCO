@@ -1,11 +1,51 @@
+
+
 compteurArtictlesPanier();
 
 
-// On va consulter le panier dans le LS
+//On va consulter le panier dans le LS
 //let localPanier = JSON.parse(localStorage.getItem("panier"));
 
 //console.log(localPanier);
 //console.log(typeof localPanier); // Il s'agit d'un Objet avec des Arrays
 
-const responseId = localStorage.getItem("responseId");
-console.log(`responseId ${responseId }`);
+let responseId = localStorage.getItem("responseId");
+console.log(`responseId ${responseId}`);
+
+// On transforme en massif d'array
+let panier2 = JSON.parse(localStorage.getItem('panier'));
+console.log(panier2, "panier2")
+
+//mise en place du compteur
+let totalPrix = 0;
+
+for (let elem of panier2) {
+	totalPrix += parseInt(elem.totalprice)
+}
+console.log(totalPrix);
+
+// La structure HTML de la page confirmationCommande
+
+
+// Selection élément du DOM pour le positionnement
+let position = document.querySelector("#container_recap_commande");
+
+let structureConfirmationCommande = `
+<h2>Vous allez commander</h2>
+<div class="recapCommande">
+	<p>Merci pour votre commande</p>
+	<p>Votre commande numéro: <span class="gras">${responseId}</span> a bien été prise en compte</p>
+	<p>Le montant de votre commande est de : <span class="gras">${totalPrix}</span> Euro</p>
+	<p class="gras">Au plaisir de vous revoir</p>
+</div>
+`;
+
+// Injection HTML
+position.insertAdjacentHTML("afterbegin", structureConfirmationCommande);
+
+// Effacer tout le local storage sauf le formulaire
+function enleverClesDuLs(key) {
+	localStorage.removeItem(key);
+}
+//enleverClesDuLs("responseId");
+//enleverClesDuLs("panier");

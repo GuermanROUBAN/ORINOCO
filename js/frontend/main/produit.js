@@ -18,8 +18,9 @@ const fetchProduit = async () => {
 		.then(res => res.json());
 	// structureProduit(donnees);
 	//console.log(donnees); // ca m'affiche bien l'Api
-	positionProduit.innerHTML = structureProduit(donnees)
 
+	positionProduit.innerHTML = structureProduit(donnees)
+	//on envoi le resultat dans "selected_article"
 };
 
 //fetchProduit(); // ok on a bien recuperé l API
@@ -31,7 +32,8 @@ showProduit();
 //-----------------------------------------------------------------------------------------------
 // ETAPE 3 - LE CHARGEMENT DU HTML
 
-function structureProduit(produit) {
+// Mise en place du HTML qui sera chargé dans "selected_article"
+function structureProduit(produit){
 	let colors = showOptions(produit.colors,);
 	return `
 	<div id="selected_article">
@@ -51,6 +53,7 @@ function structureProduit(produit) {
 			</div>
 	`
 }
+// On selection l'element "selected article"
 const positionProduit = document.getElementById("selected_article");
 //console.log(positionProduit);
 
