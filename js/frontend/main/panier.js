@@ -1,6 +1,9 @@
 
 // ETAPE 1 -
 //--------------------------------------------------------------------------------
+
+
+
 // On va consulter le panier dans le LS
 let localPanier = JSON.parse(localStorage.getItem("panier"))
 
@@ -51,6 +54,24 @@ function showPanier() {
 	);
 	// data-id = attribut data de l'input (avec nom id ) permet de saisir la donnée 'teddies'
 };
+
+
+// Recuperation de l'ID
+
+let oursPanier = localStorage.getItem("panier")
+let ours = JSON.parse(oursPanier)
+//console.log(ours)
+let listeIdPanier = [];
+for (let i = 0; i < ours.length; i++) {
+	listeOursPanier = ours[i]
+	listeIdPanier.push(listeOursPanier._id)
+}
+
+//console.log(listeIdPanier, "listeIdPanier");
+
+
+
+
 
 // ETAPE 3 - 
 //-----------------------------------------------------------------------------------------------
@@ -282,7 +303,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 
 
 
-	
+
 	// Fonctions de control des champs de saisie du formulaire 
 	function prenomControl() {
 		// controle du prénom
@@ -374,14 +395,45 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 
 	//-----------------------------------------------------------------------------------------------
 
+
+
+
+
 	// Mettre les values du formulaire et mettre les produits sélectionnés dans un objet à envoyer vers le serveur
 	const aEnvoyer = {
-		localPanier,
-		formulaireValues
+		"products": listeIdPanier,
+		"contact": formulaireValues
 	}
 
+	//console.log(formulaireValues);
 	console.log(aEnvoyer, 'aEnvoyer');
+
+	// Envoi de l'objet "aEnvoyer" vers le serveur	
+
+	const promise01 = fetch('http://localhost:3000/api/teddies/order', {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		mode: "cors",
+		body: JSON.stringify(aEnvoyer),
+	})
+	//console.log(promise01, 'promise01'); // donne pending 'en attente' la promise n'est ni promise ni rompue
+	
+	// Pour voir le resultat du serveur dans la console.
+	promise01.then(async (response) => {
+		try {
+			console.log(response, 'response');
+
+			const contenu = await response.json();
+			console.log(contenu, 'contenu'); // renvoi l'ordre de l'id
+
+		} catch (e) {
+			console.log(e);
+		}
+	})
 })
+
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 10 - Mettre le contenu du local storage dans les champs du formulaire
