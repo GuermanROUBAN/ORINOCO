@@ -2,8 +2,6 @@
 // ETAPE 1 -
 //--------------------------------------------------------------------------------
 
-
-
 // On va consulter le panier dans le LS
 let localPanier = JSON.parse(localStorage.getItem("panier"))
 
@@ -301,9 +299,6 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 	};
 	*/
 
-
-
-
 	// Fonctions de control des champs de saisie du formulaire 
 	function prenomControl() {
 		// controle du prénom
@@ -384,31 +379,33 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 			alert("L'email n'est pas valide");
 			return false;
 		}
-	}
+	};
 
+	// Controle la validité du formulaire avant l'envoi dans le LS
 	if (prenomControl() && nomControl() && adresseControl() && villeControl() && emailControl()) {
-		// Mettre l'objet "formulaireValue0s" dans LS
+		// Mettre l'objet "formulaireValues" dans LS
 		localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+
+		// Mettre les values du formulaire et mettre les produits sélectionnés dans un objet à envoyer vers le serveur
+		const aEnvoyer = {
+			"products": listeIdPanier,
+			"contact": formulaireValues,
+		};
+		envoieVersServeur(aEnvoyer)
+		// 2.l'argument ira chercher la valeur qu'il y a dans la variable
 	} else {
 		alert("Veilliez bien remplir le formulaire");
 	}
+})
 
-	//-----------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
+// ETAPE 11 - 
 
+function envoieVersServeur(aEnvoyer) {
+	// Envoi de l'objet "aEnvoyer" vers le serveur
 
-
-
-
-	// Mettre les values du formulaire et mettre les produits sélectionnés dans un objet à envoyer vers le serveur
-	const aEnvoyer = {
-		"products": listeIdPanier,
-		"contact": formulaireValues
-	}
-
-	//console.log(formulaireValues);
-	console.log(aEnvoyer, 'aEnvoyer');
-
-	// Envoi de l'objet "aEnvoyer" vers le serveur	
+	// 1.La fonction est hors de l'addEventListener
+	// 3.La fonction reprendra la valeur de aEnvoyer et la mettra dans JSON.stringify
 
 	const promise01 = fetch('http://localhost:3000/api/teddies/order', {
 		method: "POST",
@@ -418,22 +415,41 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 		mode: "cors",
 		body: JSON.stringify(aEnvoyer),
 	})
-	//console.log(promise01, 'promise01'); // donne pending 'en attente' la promise n'est ni promise ni rompue
-	
+
 	// Pour voir le resultat du serveur dans la console.
 	promise01.then(async (response) => {
+		// si la promesse n'est pas résolu, si rejet, - gestion des erreurs
 		try {
-			console.log(response, 'response');
+			//console.log(response, 'response');
 
 			const contenu = await response.json();
-			console.log(contenu, 'contenu'); // renvoi l'ordre de l'id
+			console.log(contenu, 'contenu de la response'); // renvoi l'ordre de l'id
+
+			if (response.ok) {
+				console.log(`Resultat du serceur: ${response.ok}`)
+
+				// récuperation de l'Id du serveur
+				console.log("id de la response");
+				console.log(contenu.orderId);
+
+				// mettre l'id dans le LS
+				localStorage.setItem("responseId", contenu.orderId)
+
+				// Aller vers la page confirmation de la commande
+				window.location = "confirmation-commande.html";
+
+			} else {
+				console.log(`Response du serveur: ${response.status}`)
+				alert(`Problème avec le serveur : erreur ${response.status}`)
+			}
 
 		} catch (e) {
+			console.log("ERREUR qui vient du catch()")
 			console.log(e);
+			alert(`ERREUR qui vient du catch ()${e}`);
 		}
 	})
-})
-
+}
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 10 - Mettre le contenu du local storage dans les champs du formulaire
@@ -462,4 +478,4 @@ remplirChampInputDepuisLocalStorage("email");
 //console.log(dataLocalStorageObjet);
 
 //-----------------------------------------------------------------------------------------------
-// ETAPE 11 -  
+// ETAPE  -  

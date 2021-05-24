@@ -14,9 +14,6 @@ const fetchApi = async () => {
 
 // ETAPE 2 - CREATION D'UN MASQUE
 
-
-
-
 const showArticles = async () => {
 	await fetchApi();
 
