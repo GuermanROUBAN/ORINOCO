@@ -419,7 +419,7 @@ function envoieVersServeur(aEnvoyer) {
 	// 1.La fonction est hors de l'addEventListener
 	// 3.La fonction reprendra la valeur de aEnvoyer et la mettra dans JSON.stringify
 
-	const promise01 = fetch('http://localhost:3000/api/teddies/order', {
+	const promise01 = fetch('https://teddies-api.herokuapp.com/api/teddies/order', {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",

@@ -55,10 +55,6 @@ const affichageArticles = async () => {
 affichageArticles();
 
 
-nombreAvecVirgule = (x) => {
-	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',')
-};
-
 
 //--------------------------
 compteurArtictlesPanier();

@@ -1,7 +1,14 @@
 
+//-----------------------------------------------------------------------------------------------
+//AFFICHAGE DU PRIX
+// Affichage correct du prix avec la virgule
+nombreAvecVirgule = (x) => {
+	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',')
+};
+
 function onLoadCartNumbers() {
 	let productNumbers = localStorage.getItem("cartNumbers");
-}
+};
 
 function cartNumbers() {
 	let productNumbers = localStorage.getItem('cartNumbers');
@@ -16,9 +23,12 @@ function cartNumbers() {
 		document.querySelector('.nav_panier span').textContent = 1;
 	}
 
-}
+};
 
 
+//-----------------------------------------------------------------------------------------------
+//COMPTE NOMBRE ARTICLES DANS PANIER
+// 
 function compteurArtictlesPanier() {
 	// On va chercher le LS
 	let localPanier = JSON.parse(localStorage.getItem("panier"));
@@ -33,6 +43,10 @@ function compteurArtictlesPanier() {
 	}
 }
 
+//-----------------------------------------------------------------------------------------------
+//POPUP DE CONFIRMATION
+// Confirme à l'utilisateur que le produit et l'option séléctionnés ont bien été ajouté au panier. 
+// Redirige vers la page panier ou bien retourne à la page acceuil.
 function popupConf() {
 	if (window.confirm("L'article: " + article_name.textContent + " option: " + "'" + article_option.value + "'" + " a bien été ajouté à votre panier. Appuyez sur OK pour aller au panier ou ANNULER pour revenir à l'acceuil"))
 	{
@@ -42,5 +56,4 @@ function popupConf() {
 		window.location.href = "/index.html";
 	}
 }
-
 

@@ -2,12 +2,12 @@
 // ETAPE 1 - RECUPERATION DE L'ID
 
 const queryString_url_id = window.location.search;
-console.log(queryString_url_id);
+//console.log(queryString_url_id);
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
-//console.log(id, 'id');
+//console.log(id, 'id');	
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 2 - API REQUEST
@@ -18,22 +18,22 @@ const fetchProduit = async () => {
 	// structureProduit(donnees);
 	//console.log(donnees); // ca m'affiche bien l'Api
 
-	positionProduit.innerHTML = structureProduit(donnees)
+	positionProduit.innerHTML = structureProduit(donnees);
 	//on envoi le resultat dans "selected_article"
 };
 
 //fetchProduit(); // ok on a bien recuperé l API
-const showProduit = async () => {
+const afficheProduit = async () => {
 	await fetchProduit();
 }
-showProduit();
+afficheProduit();
+
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 3 - LE CHARGEMENT DU HTML
-
 // Mise en place du HTML qui sera chargé dans "selected_article"
-function structureProduit(produit){
-	let colors = showOptions(produit.colors,);
+function structureProduit(produit) {
+	let colors = affichageOptions(produit.colors,);
 	return `
 	<div id="selected_article">
 				<h2 class="article_name">Nom du produit:</h2><p><span id="article_name">${produit.name}</span></p>
@@ -45,7 +45,7 @@ function structureProduit(produit){
 					${colors}
 					</select>
 				</form>
-				<h2 class="article_price" >Prix:</h2><p><span id="article_price">${numberWhitComa(produit.price)} €</span></p>
+				<h2 class="article_price" >Prix:</h2><p><span id="article_price">${nombreAvecVirgule(produit.price)} €</span></p>
 				<div class="${produit.imageUrl}">
 						<img class="article_img" id="article_img" src="${produit.imageUrl}" />
 				</div>
@@ -60,7 +60,7 @@ const positionProduit = document.getElementById("selected_article");
 // ETAPE 4 - LA SELECTE BOX
 // créer une fonction qui va générer l'ensemble des options, avec ces dernières passées en paramètre
 
-function showOptions(options) {
+function affichageOptions(options) {
 	//console.log(options)// déclarer une variable vide qui va contenir le code HTML
 	let varHTMLvide = ``;
 	// parcourir les couleurs (les options passées en paramètre) via une boucle
@@ -74,12 +74,7 @@ function showOptions(options) {
 	return varHTMLvide;
 }
 
-//-----------------------------------------------------------------------------------------------
-// ETAPE 5 - AFFICHAGE DU PRIX
-// Affichage correct du prix avec la virgule
-numberWhitComa = (x) => {
-	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',')
-};
+
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 6 - CREATION LOCAL STORAGE
@@ -105,7 +100,7 @@ btnByeArt.onclick = () => {
 		totalprice: article_price.textContent,
 		imageUrl: article_img.src,
 		qty: 1
-		
+
 	}
 
 	// Controle si le panier existe dans le LS
