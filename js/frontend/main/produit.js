@@ -7,8 +7,7 @@ console.log(queryString_url_id);
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
-
-console.log("id=", id);
+//console.log(id, 'id');
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 2 - API REQUEST

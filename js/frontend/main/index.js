@@ -1,20 +1,21 @@
 
-const results = document.getElementById('results');
+// CREATION DE VARIABLES
 
+const results = document.getElementById('results');
 let teddies;
 
 // ETAPE 1 - API REQUEST
 const fetchApi = async () => {
-	teddies = await fetch("http://localhost:3000/api/teddies")
+	teddies = await fetch('https://teddies-api.herokuapp.com/api/teddies/')
 		.then(res => res.json());
-	console.log(teddies); // prouve que l'API a bien chargée les données
+	console.log(teddies, 'teddies'); // prouve que l'API a bien chargée les données
 };
 
 //fetchApi(); // ok on a bien recuperé l API
 
 // ETAPE 2 - CREATION D'UN MASQUE
 
-const showArticles = async () => {
+const affichageArticles = async () => {
 	await fetchApi();
 
 	results.innerHTML = (
@@ -30,7 +31,7 @@ const showArticles = async () => {
 						</br></br>
 						<p class="article-description">${teddy.description}</p>
 						</br></br>
-						<p class="article-price">${numberWhitComa(teddy.price)} €</p>
+						<p class="article-price">${nombreAvecVirgule(teddy.price)} €</p>
 						</br></br>
 						
 						<a href="/html/produit.html?id=${teddy._id}">
@@ -51,10 +52,10 @@ const showArticles = async () => {
 	);
 };
 
-showArticles();
+affichageArticles();
 
 
-numberWhitComa = (x) => {
+nombreAvecVirgule = (x) => {
 	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',')
 };
 
