@@ -37,7 +37,7 @@ function structureHtmlProduit(produit) {
 	return `
 	<div id="selected_article">
 				<h2 class="article_name">Nom du produit:</h2><p><span id="article_name">${produit.name}</span></p>
-				<!--<h2 class="article_id">Id du produit:</h2><p><span id="article_id">${produit._id}</span></p>-->
+				<h2 class="article_id">Id du produit:</h2><p><span id="article_id">${produit._id}</span></p>
 				<h2 class="article_description">Description du produit:</h2><p><span id="article_description">${produit.description}</span></p>
 				<form>
 					<label for="article_option"><h3>Choisir la couleur:</h3></label>

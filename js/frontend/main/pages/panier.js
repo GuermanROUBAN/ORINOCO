@@ -52,22 +52,6 @@ function showPanier() {
 };
 
 
-// Recuperation de l'ID
-
-let oursPanier = localStorage.getItem("panier")
-let ours = JSON.parse(oursPanier)
-let listeIdPanier = [];
-if (ours != null) {
-	//console.log(ours)
-	for (let i = 0; i < ours.length; i++) {
-		listeOursPanier = ours[i]
-		listeIdPanier.push(listeOursPanier._id)
-	}
-}
-
-
-//console.log(listeIdPanier, "listeIdPanier");
-
 
 
 
@@ -238,8 +222,23 @@ const btnEnvoyerFormulaire = document.querySelector("#btnValidationPanier");
 
 
 //-----------------------------------------------------------------------------------------------
-// ETAPE 8 - addEventListener
 
+// Recuperation de l'ID
+
+let oursPanier = localStorage.getItem("panier")
+let ours = JSON.parse(oursPanier)
+let listeIdPanier = [];
+if (ours != null) {
+	//console.log(ours)
+	for (let i = 0; i < ours.length; i++) {
+		listeOursPanier = ours[i]
+		listeIdPanier.push(listeOursPanier._id)
+	}
+}
+
+//console.log(listeIdPanier, "listeIdPanier");
+
+// ETAPE 8 - addEventListener
 btnEnvoyerFormulaire.addEventListener("click", (e) => {
 	e.preventDefault();
 
