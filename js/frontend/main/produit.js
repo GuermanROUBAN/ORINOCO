@@ -18,7 +18,7 @@ const fetchProduit = async () => {
 	// structureProduit(donnees);
 	//console.log(donnees); // ca m'affiche bien l'Api
 
-	positionProduit.innerHTML = structureProduit(donnees);
+	injectionHtmlProduit.innerHTML = structureHtmlProduit(donnees);
 	//on envoi le resultat dans "selected_article"
 };
 
@@ -32,7 +32,7 @@ afficheProduit();
 //-----------------------------------------------------------------------------------------------
 // ETAPE 3 - LE CHARGEMENT DU HTML
 // Mise en place du HTML qui sera chargé dans "selected_article"
-function structureProduit(produit) {
+function structureHtmlProduit(produit) {
 	let colors = affichageOptions(produit.colors,);
 	return `
 	<div id="selected_article">
@@ -53,13 +53,12 @@ function structureProduit(produit) {
 	`
 }
 // On selection l'element "selected article"
-const positionProduit = document.getElementById("selected_article");
-//console.log(positionProduit);
+const injectionHtmlProduit = document.getElementById("selected_article");
+//console.log(injectionHtmlProduit);
 
 //-----------------------------------------------------------------------------------------------
 // ETAPE 4 - LA SELECTE BOX
 // créer une fonction qui va générer l'ensemble des options, avec ces dernières passées en paramètre
-
 function affichageOptions(options) {
 	//console.log(options)// déclarer une variable vide qui va contenir le code HTML
 	let varHTMLvide = ``;
@@ -77,7 +76,7 @@ function affichageOptions(options) {
 
 
 //-----------------------------------------------------------------------------------------------
-// ETAPE 6 - CREATION LOCAL STORAGE
+// ETAPE 5 - CREATION LOCAL STORAGE
 //localStorage.setItem("clé","valeur")
 //localStorage.getItem("clé")
 //localStorage.clear();
@@ -100,7 +99,6 @@ btnByeArt.onclick = () => {
 		totalprice: article_price.textContent,
 		imageUrl: article_img.src,
 		qty: 1
-
 	}
 
 	// Controle si le panier existe dans le LS

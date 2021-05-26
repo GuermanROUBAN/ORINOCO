@@ -1,20 +1,15 @@
-
-// ETAPE 1 -
+// ETAPE 1 - CONSULTATION DU PANIER
 //--------------------------------------------------------------------------------
-
 // On va consulter le panier dans le LS
-let localPanier = JSON.parse(localStorage.getItem("panier"))
 
+let localPanier = JSON.parse(localStorage.getItem("panier"))
 //console.log(localPanier);
 //console.log(typeof localPanier); // Il s'agit d'un Objet avec des Arrays
-
 
 if (localPanier != null) {//si la clé existe
 	showPanier(); //charge la fonction avec le code HTML
 }
-
 console.log(panier, 'panier search');
-
 
 // ETAPE 2 - 
 //--------------------------------------------------------------------------------
