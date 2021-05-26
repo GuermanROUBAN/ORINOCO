@@ -303,89 +303,31 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 	// Fonctions de control des champs de saisie du formulaire 
 	function prenomControl() {
 		// controle du prénom
-		const lePrenom = formulaireValues.firstName;
-		//accepte des MAJ et miuscules entre 3 et 20 caracteres
-		if (regExPrenomNom(lePrenom)) {
-			//console.log("OK");
-			//dataChampManquantTexteVide("prenomManquant");
-			return true;
-		} else {
-			//console.log("KO");
-			// affichage message texte dans l'input
-			//dataChampManquantTexte("prenomManquant");
-			alert(textAlert("Prénom"));
-			return false;
-		}
+		return regExPrenomNom(formulaireValues.firstName);
 	}
 
 	function nomControl() {
 		// controle du nom
-		const leNom = formulaireValues.lastName;
-		//accepte des MAJ et miuscules entre 3 et 20 caracteres
-		if (regExPrenomNom(leNom)) {
-			//console.log("OK");
-			//dataChampManquantTexteVide("nomManquant");
-			return true;
-		} else {
-			//console.log("KO");
-			//dataChampManquantTexte("nomManquant");
-			alert(textAlert("Nom"));
-			return false;
-		}
+		return regExPrenomNom(formulaireValues.lastName);
 	}
 
 	function adresseControl() {
 		// controle de l'adresse
-		const lAdresse = formulaireValues.address;
-		//accepte des MAJ et miuscules entre 3 et 20 caracteres
-		if (regExAdresse(lAdresse)) {
-			//console.log("OK");
-			//dataChampManquantTexteVide("adresseManquant");
-			return true;
-		} else {
-			//console.log("KO");
-			//dataChampManquantTexte("adresseManquant");
-			alert(textAlert("Adresse"));
-			return false;
-		}
+		return regExAdresse(formulaireValues.address);
 	}
 
 	function villeControl() {
 		// controle du ville
-		const laVille = formulaireValues.city;
-		//accepte des MAJ et miuscules entre 3 et 20 caracteres
-		if (regExVille(laVille)) {
-			//console.log("OK");
-			//dataChampManquantTexteVide("villeManquant");
-			return true;
-		} else {
-			//console.log("KO");
-			//dataChampManquantTexte("villeManquant");
-			alert(textAlert("Ville"));
-			return false;
-		}
+		return regExVille(formulaireValues.city);
 	}
 
 	function emailControl() {
 		// controle de l'email
-		const lemail = formulaireValues.email;
-		//accepte des MAJ et miuscules entre 3 et 20 caracteres
-		if (regExEmail(lemail)) {
-			//console.log("OK");
-			//dataChampManquantTexteVide("emailManquant");
-			return true;
-		} else {
-			//console.log("KO");
-			//dataChampManquantTexte("emailManquant");
-			alert("L'email n'est pas valide");
-			return false;
-		}
-	};
-
-
+		return regExEmail(formulaireValues.email);
+	}
 
 	// Controle la validité du formulaire avant l'envoi dans le LS
-	if (prenomControl() && nomControl() && adresseControl() && villeControl() && emailControl()) {
+	if (regExPrenomNom(formulaireValues.firstName) && (regExPrenomNom(formulaireValues.lastName) && regExAdresse(formulaireValues.address) && regExVille(formulaireValues.city) && regExEmail(formulaireValues.email))){
 		// Mettre l'objet "formulaireValues" dans LS
 		localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
 		//localStorage.setItem("prixTotal", JSON.stringify(compteurPrix));
@@ -400,9 +342,8 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 		// 2.l'argument ira chercher la valeur qu'il y a dans la variable
 	} else {
 		alert("Veilliez bien remplir le formulaire");
-	}
-
-
+	
+}
 })
 
 //-----------------------------------------------------------------------------------------------
