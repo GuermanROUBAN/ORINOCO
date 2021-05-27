@@ -51,16 +51,10 @@ function showPanier() {
 	// data-id = attribut data de l'input (avec nom id ) permet de saisir la donnée 'teddies'
 };
 
-
-
-
-
-
 // ETAPE 3 - 
 //-----------------------------------------------------------------------------------------------
 
 compteurArtictlesPanier();
-
 
 // ETAPE 4 - CALCUL DES VALEURS DES INPUTS
 //-----------------------------------------------------------------------------------------------
@@ -74,36 +68,40 @@ for (let i = 0; i < inputPanierLength; i++) {
 	// Pour chaque INPUT on écoute un évenement et on applique la fonction
 	inputPanier[i].addEventListener("input", function () {
 		let prix = parseInt(this.parentNode.children[0].innerHTML)
+		// parseInt => string to Integer (nombre)
 		// On recupere le prix
 		// this=input; parentNode=div panier-string-calcul; .children[0]=premier enfant liste .innerHTML=on accede à l'inner
 		let calculPrix = prix * this.value
 		// calcul de la valeur de l'INPUT grâce à la valeur du prix
 		this.nextElementSibling.innerHTML = calculPrix + ' €';
+		//this = inputPanier[i]
 		// element suivant de l'INPUT dans notre div affiche la nouvelle valeur de calculPrix
 
 		//LocalStorage UPDATE
 
 		// On Parse pour travailler dans l'objet
-		let localStoragePush = JSON.parse(localStorage.getItem('panier'));
+		let localStoragePanierActualise = JSON.parse(localStorage.getItem('panier'));
 		// On appel le LS donne [{Tovar1},{Tovar2}]
-		let localStoragePushLength = localStoragePush.length
+		let localStoragePanierActualiseLength = localStoragePanierActualise.length
 		// On calcul la quantité des lignes de produits dans le LS
 		let idProduit = this.dataset.id //s'appelle comme le nom de l'attibut
 		// on lit l'attribut data pour reperer notre produit dans le LS
 		console.log(idProduit)
 
-		for (let j = 0; j < localStoragePushLength; j++) {
-
-			if (localStoragePush[j]['_id'] == idProduit) {
-
-				localStoragePush[j]['totalprice'] = calculPrix
-
-				localStoragePush[j]['qty'] = this.value
+		for (let j = 0; j < localStoragePanierActualiseLength; j++) {
+			// on calcul la longeur du nouveau actualisé
+			if (localStoragePanierActualise[j]['_id'] == idProduit) {
+				// id correspond alors 
+				localStoragePanierActualise[j]['totalprice'] = calculPrix
+				// change prix
+				localStoragePanierActualise[j]['qty'] = this.value
+				// change qty LS.
+				// this.value => valeur dans l'input qty => valeur dans LS
 			}
 		}
 
 		// On Stringify l'objet qu'on a modifié
-		localStorage.setItem('panier', JSON.stringify(localStoragePush))
+		localStorage.setItem('panier', JSON.stringify(localStoragePanierActualise))
 
 		// On execute la fonction d'affichage 
 		affichagePrixTotal();
@@ -111,7 +109,7 @@ for (let i = 0; i < inputPanierLength; i++) {
 	})
 }
 
-// ETAPE 5 - 
+// ETAPE 4 - 
 //-----------------------------------------------------------------------------------------------
 // Affichage du total dans l'panier.html
 
@@ -138,9 +136,8 @@ function affichagePrixTotal() {
 
 affichagePrixTotal();
 
-
-// ETAPE 6 - SUPRESSION DE L'ARTICLE
-
+//-----------------------------------------------------------------------------------------------
+// ETAPE 5 - SUPRESSION DE L'ARTICLE
 
 function supprimerProduit(index) {
 
@@ -160,9 +157,8 @@ function supprimerPanier() {
 	window.location.reload();
 }
 
-
 //-----------------------------------------------------------------------------------------------
-// ETAPE 7 - FORMULAIRE DE COMMANDE 
+// ETAPE 6 - FORMULAIRE DE COMMANDE 
 
 // Afficher formulaire HTML
 
@@ -177,22 +173,22 @@ const AfficherFormulaireHTML = () => {
 			<legend>Merci de bien vouloir remplir notre formulaire</legend>
 			<div class="form-group">
 				<label for="firstName">Prénom</label> <span id="prenomManquant" class="infoChampManquant"></span> <abbr title="Merci de saisir ici votre prénom">*</abbr>
-				<input type="text" id="firstName" name="fistName" value="" class="form-control" required>
+				<input type="text" id="firstName" name="fistName" value="" class="form-control" placeholder="Jean-Pierre" required>
 			</div>
 
 			<div class="form-group">
 				<label for="lastName">Nom</label> <span id="nomManquant" class="infoChampManquant"></span> <abbr title="Merci de saisir ici votre nom">*</abbr>
-				<input type="text" id="lastName" name="lastName" class="form-control" required>
+				<input type="text" id="lastName" name="lastName" class="form-control" placeholder="Heureux" required>
 			</div>
 
 			<div class="form-group">
 				<label for="address">Adresse</label><span id="adresseManquant" class="infoChampManquant"></span><abbr title="Merci de saisir ici votre adresse">*</abbr>
-				<input type="text" id="address" name="address" class="form-control" required>
+				<input type="text" id="address" name="address" class="form-control" placeholder="1 rue de Paix - 75000" required>
 			</div>
 
 			<div class="form-group">
 				<label for="city">City</label><span id="villeManquant" class="infoChampManquant"></span><abbr title="Merci de saisir ici votre ville">*</abbr>
-				<input type="text" id="city" name="city" class="form-control" required>
+				<input type="text" id="city" name="city" class="form-control" placeholder="Paris" required>
 			</div>
 
 			<div class="form-group">
@@ -201,8 +197,8 @@ const AfficherFormulaireHTML = () => {
 				<input type="email" id="email" name="email" class="form-control" required />
 			</div>
 
-			<div class="btnFinalisationPanier">
-				<button id="btnValidationPanier" "class="btnValidationPanier" name="btnValidationPanier">Valider la
+			<div class="validationPanier">
+				<button id="btnValidationPanier" class="btnValidationPanier" name="btnValidationPanier">Valider la
 					commande</button>
 			</div>
 		</fieldset>
@@ -222,9 +218,7 @@ const btnEnvoyerFormulaire = document.querySelector("#btnValidationPanier");
 
 
 //-----------------------------------------------------------------------------------------------
-
 // Recuperation de l'ID
-
 let oursPanier = localStorage.getItem("panier")
 let ours = JSON.parse(oursPanier)
 let listeIdPanier = [];
@@ -238,115 +232,82 @@ if (ours != null) {
 
 //console.log(listeIdPanier, "listeIdPanier");
 
-// ETAPE 8 - addEventListener
+// Création d'une classe pour fabriquer l'objet dans lequel iront
+// les valuses du formulaire
+class Formulaire {
+	constructor() {
+		this.firstName = document.querySelector("#firstName").value;
+		this.lastName = document.querySelector("#lastName").value;
+		this.address = document.querySelector("#address").value;
+		this.city = document.querySelector("#city").value;
+		this.email = document.querySelector("#email").value;
+	}
+}
+
+// ETAPE 7 - addEventListener
 btnEnvoyerFormulaire.addEventListener("click", (e) => {
 	e.preventDefault();
+	//console.log(localPanier, "panierTEST");
+	if (localPanier != null){
+		// variant if N1 => si le panier n'est pas present dans le LS.
+		if (localPanier.length != 0) {
+			// variante if N2 => si la longeur du panier dans le LS est vide = 0.
+			// Appel de l'instance de classe Formulaire pour créer l'objet formulaireValues
+			const formulaireValues = new Formulaire();
+			
+			// Controle la validité du formulaire avant l'envoi dans le LS
+			if (regExPrenomNom(formulaireValues.firstName) && (regExPrenomNom(formulaireValues.lastName) && regExAdresse(formulaireValues.address) && regExVille(formulaireValues.city) && regExEmail(formulaireValues.email))) {
+				// Mettre l'objet "formulaireValues" dans LS
+				localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+				//localStorage.setItem("prixTotal", JSON.stringify(compteurPrix));
 
-	// Création d'une classe pour fabriquer l'objet dans lequel iront
-	// les valuses du formulaire
+				// Mettre les values du formulaire et mettre les produits sélectionnés dans un objet à envoyer vers le serveur
+				const aEnvoyer = {
+					"products": listeIdPanier, //L 223
+					"contact": formulaireValues, // L 249
+				};
 
-	class Formulaire {
-		constructor() {
-			this.firstName = document.querySelector("#firstName").value;
-			this.lastName = document.querySelector("#lastName").value;
-			this.address = document.querySelector("#address").value;
-			this.city = document.querySelector("#city").value;
-			this.email = document.querySelector("#email").value;
+				envoieVersServeur(aEnvoyer)
+				// 2.l'argument ira chercher la valeur qu'il y a dans la variable
+			} else {
+				if (regExPrenomNom(formulaireValues.firstName) === false) {
+					dataChampManquantTexte("prenomManquant");
+				} else {
+					dataChampManquantTexteVide("prenomManquant");
+				}
+				if (regExPrenomNom(formulaireValues.firstName) === false) {
+					dataChampManquantTexte("nomManquant");
+				} else {
+					dataChampManquantTexteVide("nomManquant");
+				}
+				if (regExAdresse(formulaireValues.address) === false){
+					dataChampManquantTexte("adresseManquant");
+				}
+				else {
+					dataChampManquantTexteVide("adresseManquant");
+				}
+				console.log(regExAdresse(formulaireValues.address),'Adresse')
+				if (regExVille(formulaireValues.city) === false) {
+					dataChampManquantTexte("villeManquant");
+				} else {
+					dataChampManquantTexteVide("villeManquant");
+				}
+				if (regExEmail(formulaireValues.email) === false) {
+					dataChampManquantTexte("emailManquant");
+				} else {
+					dataChampManquantTexteVide("emailManquant");
+				}
+			}
+		} else {
+			alert("Aucun article dans le panier");
 		}
+	}else {
+		alert("Aucun article dans le panier");
 	}
-
-	// Appel de l'instance de classe Formulaire pour créer l'objet formulaireValues
-	const formulaireValues = new Formulaire();
-
-	//-----------------------------------------------------------------------------------------------
-	// ETAPE 9 - Validation du formulaire
-	// Expression de fonction
-
-	// Message d'alerte en cas de mauvaise saisie dans le formulaire
-	const textAlert = (value) => {
-		return `Attention champs ${value}:  \n - vide (minimum 3 caractères necessaires) \n - comporte des caractères non autorisés (chiffres / symboles)`;
-	}
-
-	// Saisie autorisée pour le nom des villes
-	const regExPrenomNom = (value) => {
-		return /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/.test(value)
-	}
-
-	// Saisie autorisée pour le nom des villes
-	const regExVille = (value) => {
-		return /^[a-zA-Z\u0080-\u024F]+(?:([\ \-\']|(\.\ ))[a-zA-Z\u0080-\u024F]+)*$/.test(value)
-	}
-
-	// Saisie autorisée pour l'adresse'
-	const regExAdresse = (value) => {
-		return /^[a-zA-Z0-9\s,'-]*$/.test(value)
-	}
-
-
-	// Saisie autorisée pour l'email
-	const regExEmail = (value) => {
-		return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(value)
-	}
-
-	/*
-	// Fonction pour gérer l'affichage du texte de validation input
-	function dataChampManquantTexteVide(querySelectorId) {
-		document.querySelector(`#${querySelectorId}`).textContent = "";
-	};
-
-	function dataChampManquantTexte(querySelectorId) {
-		document.querySelector(`#${querySelectorId}`).textContent = "Merci de remplir ce champ";
-	};
-	*/
-
-	// Fonctions de control des champs de saisie du formulaire 
-	function prenomControl() {
-		// controle du prénom
-		return regExPrenomNom(formulaireValues.firstName);
-	}
-
-	function nomControl() {
-		// controle du nom
-		return regExPrenomNom(formulaireValues.lastName);
-	}
-
-	function adresseControl() {
-		// controle de l'adresse
-		return regExAdresse(formulaireValues.address);
-	}
-
-	function villeControl() {
-		// controle du ville
-		return regExVille(formulaireValues.city);
-	}
-
-	function emailControl() {
-		// controle de l'email
-		return regExEmail(formulaireValues.email);
-	}
-
-	// Controle la validité du formulaire avant l'envoi dans le LS
-	if (regExPrenomNom(formulaireValues.firstName) && (regExPrenomNom(formulaireValues.lastName) && regExAdresse(formulaireValues.address) && regExVille(formulaireValues.city) && regExEmail(formulaireValues.email))){
-		// Mettre l'objet "formulaireValues" dans LS
-		localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
-		//localStorage.setItem("prixTotal", JSON.stringify(compteurPrix));
-
-
-		// Mettre les values du formulaire et mettre les produits sélectionnés dans un objet à envoyer vers le serveur
-		const aEnvoyer = {
-			"products": listeIdPanier,
-			"contact": formulaireValues,
-		};
-		envoieVersServeur(aEnvoyer)
-		// 2.l'argument ira chercher la valeur qu'il y a dans la variable
-	} else {
-		alert("Veilliez bien remplir le formulaire");
-	
-}
 })
 
 //-----------------------------------------------------------------------------------------------
-// ETAPE 11 - 
+// ETAPE 8 - 
 
 function envoieVersServeur(aEnvoyer) {
 	// Envoi de l'objet "aEnvoyer" vers le serveur
@@ -354,7 +315,7 @@ function envoieVersServeur(aEnvoyer) {
 	// 1.La fonction est hors de l'addEventListener
 	// 3.La fonction reprendra la valeur de aEnvoyer et la mettra dans JSON.stringify
 
-	const promise01 = fetch('https://teddies-api.herokuapp.com/api/teddies/order', {
+	const commandePanier = fetch('https://teddies-api.herokuapp.com/api/teddies/order', {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
@@ -364,7 +325,7 @@ function envoieVersServeur(aEnvoyer) {
 	})
 
 	// Pour voir le resultat du serveur dans la console.
-	promise01.then(async (response) => {
+	commandePanier.then(async (response) => {
 		// si la promesse n'est pas résolu, si rejet, - gestion des erreurs
 		try {
 			//console.log(response, 'response');
@@ -373,7 +334,7 @@ function envoieVersServeur(aEnvoyer) {
 			console.log(contenu, 'contenu de la response'); // renvoi l'ordre de l'id
 
 			if (response.ok) {
-				console.log(`Resultat du serceur: ${response.ok}`)
+				console.log(`Resultat du serveur: ${response.ok}`)
 
 				// récuperation de l'Id du serveur
 				console.log("id de la response");
@@ -399,8 +360,7 @@ function envoieVersServeur(aEnvoyer) {
 }
 
 //-----------------------------------------------------------------------------------------------
-// ETAPE 10 - Mettre le contenu du local storage dans les champs du formulaire
-
+// ETAPE 9 - Mettre le contenu du local storage dans les champs du formulaire
 //Allez chercher la key formulaireValues et la mettre dans une vairable
 
 const dataLocalStorage = localStorage.getItem("formulaireValues");
@@ -424,5 +384,3 @@ remplirChampInputDepuisLocalStorage("email");
 
 //console.log(dataLocalStorageObjet);
 
-//-----------------------------------------------------------------------------------------------
-// ETAPE  -  

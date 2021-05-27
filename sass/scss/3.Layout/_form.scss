@@ -1,6 +1,5 @@
 //Formulaire page panier
-
-form{
+.formulaireCommande{
 	display:flex;
 	flex-wrap: wrap;
 	width: 60%;
@@ -27,16 +26,16 @@ form{
 	}
 
 	.infoChampManquant{
-		font-weight: 900;
+		font-weight: 600;
+		font-style: italic;
 		color: ($colour-invalid);
 	}
 	
-	.btnFinalisationPanier{
+	.validation_Panier{
 		display:flex;
-		width:100%;
-		button{
-			
-			margin: auto;
+		width: 100%;
+		margin: 20px;
+		.btnValidationPanier{
 			a{
 				text-align: center;
 			}
@@ -44,4 +43,40 @@ form{
 	}
 	
 
+}
+
+.panier_somme_totale{
+	display:flex;
+	flex-wrap: wrap;
+	background: ($colour-carte);
+	.recapitulatif_panier{
+	display: flex;
+	background: chartreuse;
+	width: 100%;
+	color:($colour-secondary);
+		.resultat_panier_texte{
+		background: red;
+		width:90%;	
+	}
+		.resultat_panier{
+		background: blue;
+		width:20%;
+		text-align: center;
+		align-items: center;
+
+	}	
+	}
+	.annulation_panier{
+		display: flex;
+		background: yellow;
+		width: 100%;
+		justify-content: center;
+		.btnAnnulationPanier{
+			margin: 20px;
+			background:($colour-invalid);
+			a{
+				text-align: center;
+			}
+		}
+	}
 }
