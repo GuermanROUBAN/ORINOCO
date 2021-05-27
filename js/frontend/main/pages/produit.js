@@ -36,16 +36,16 @@ function structureHtmlProduit(produit) {
 	let colors = affichageOptions(produit.colors,);
 	return `
 	<div id="selected_article">
-				<h2 class="article_name">Nom du produit:</h2><p><span id="article_name">${produit.name}</span></p>
-				<h2 style="display:none" class="article_id">Id du produit:</h2><p style="display:none"><span id="article_id">${produit._id}</span></p>
-				<h2 class="article_description">Description du produit:</h2><p><span id="article_description">${produit.description}</span></p>
+				<h3 class="article_name">Nom du produit:</h3><p><span id="article_name">${produit.name}</span></p>
+				<h3 style="display:none" class="article_id">Id du produit:</h3><p style="display:none"><span id="article_id">${produit._id}</span></p>
+				<h3 class="article_description">Description du produit:</h3><p><span id="article_description">${produit.description}</span></p>
 				<form>
 					<label for="article_option"><h3>Choisir la couleur:</h3></label>
 					<select name="article_option" id="article_option">
 					${colors}
 					</select>
 				</form>
-				<h2 class="article_price" >Prix:</h2><p><span id="article_price">${nombreAvecVirgule(produit.price)} €</span></p>
+				<h3 class="article_price" >Prix:</h3><p><span id="article_price">${nombreAvecVirgule(produit.price)} €</span></p>
 				<div class="${produit.imageUrl}">
 						<img class="article_img" id="article_img" src="${produit.imageUrl}" />
 				</div>

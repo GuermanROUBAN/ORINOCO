@@ -21,7 +21,7 @@
 	width: 100%;
 	color:($colour-secondary);
 		.resultat_panier_texte{
-		background: red;
+	
 		width:90%;	
 	}
 		.resultat_panier{
@@ -38,6 +38,7 @@
 		width: 100%;
 		justify-content: center;
 		.btnAnnulationPanier{
+			width: 60%;
 			margin: 20px;
 			background:($colour-invalid);
 			a{

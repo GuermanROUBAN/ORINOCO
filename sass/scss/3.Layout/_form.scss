@@ -6,6 +6,8 @@
 	margin: auto;
 	justify-content: center;
 	align-items: center;
+	color:($colour-accent);
+	font-weight: 600;
 	
 	legend{
 		margin-bottom:20px;
@@ -26,7 +28,7 @@
 	}
 
 	.infoChampManquant{
-		font-weight: 600;
+		font-weight: 800;
 		font-style: italic;
 		color: ($colour-invalid);
 	}

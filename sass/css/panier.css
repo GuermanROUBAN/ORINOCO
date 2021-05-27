@@ -94,6 +94,15 @@ h1 {
 h2 {
   font-weight: 900;
   font-size: 2rem;
+  color: #f09993fa;
+}
+
+h3 {
+  color: #f09993fa;
+}
+
+h4 {
+  color: #5f4b26de;
 }
 
 textarea {
@@ -251,6 +260,8 @@ header img {
   margin: auto;
   justify-content: center;
   align-items: center;
+  color: #f09993fa;
+  font-weight: 600;
 }
 .formulaireCommande legend {
   margin-bottom: 20px;
@@ -268,7 +279,7 @@ header img {
   background: #b9906ade;
 }
 .formulaireCommande .infoChampManquant {
-  font-weight: 600;
+  font-weight: 800;
   font-style: italic;
   color: #DB464B;
 }
@@ -288,6 +299,7 @@ footer {
   width: 100%;
   height: 140px;
   align-items: center;
+  justify-content: center;
   background: #b9906ade;
 }
 
@@ -356,7 +368,6 @@ h1 {
   color: #bcce57;
 }
 .panier_somme_totale .recapitulatif_panier .resultat_panier_texte {
-  background: red;
   width: 90%;
 }
 .panier_somme_totale .recapitulatif_panier .resultat_panier {
@@ -370,6 +381,7 @@ h1 {
   justify-content: center;
 }
 .panier_somme_totale .annulation_panier .btnAnnulationPanier {
+  width: 60%;
   margin: 20px;
   background: #DB464B;
 }

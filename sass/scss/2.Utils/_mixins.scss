@@ -1,5 +1,4 @@
 
-
 @mixin border($colour:$colour-primary) {
     border: .1rem solid $colour;
 }
@@ -87,9 +86,7 @@ border-radius: 16px;
 background: white;
 }
 
-@mixin card_menu_title
-{   
-
+@mixin card_menu_title{   
 	h3{
         display: inline-block;
 		margin: 16px 0 5px 10px;
@@ -114,3 +111,4 @@ span{
 @mixin couleur_coeur{
     background: linear-gradient(180deg,($colour-secondary), ($colour-secondary 10%), ($colour-primary));
 }
+

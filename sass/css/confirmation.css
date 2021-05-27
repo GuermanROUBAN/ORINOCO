@@ -94,6 +94,15 @@ h1 {
 h2 {
   font-weight: 900;
   font-size: 2rem;
+  color: #f09993fa;
+}
+
+h3 {
+  color: #f09993fa;
+}
+
+h4 {
+  color: #5f4b26de;
 }
 
 textarea {
@@ -251,6 +260,8 @@ header img {
   margin: auto;
   justify-content: center;
   align-items: center;
+  color: #f09993fa;
+  font-weight: 600;
 }
 .formulaireCommande legend {
   margin-bottom: 20px;
@@ -268,7 +279,7 @@ header img {
   background: #b9906ade;
 }
 .formulaireCommande .infoChampManquant {
-  font-weight: 600;
+  font-weight: 800;
   font-style: italic;
   color: #DB464B;
 }
@@ -288,6 +299,7 @@ footer {
   width: 100%;
   height: 140px;
   align-items: center;
+  justify-content: center;
   background: #b9906ade;
 }
 
@@ -333,36 +345,8 @@ h1 {
   margin-bottom: 20px;
 }
 
-.nav_produit {
-  display: none;
+p {
+  color: green;
 }
 
-#main {
-  display: flex;
-  flex-direction: column;
-}
-
-#selected_article {
-  display: flex;
-  flex-direction: column;
-  background: #5f4b26de;
-  margin: auto;
-  width: 80%;
-}
-#selected_article p {
-  color: #bcce57;
-}
-#selected_article img {
-  display: flex;
-  margin: auto;
-  width: 100%;
-  border-radius: 25px;
-  object-fit: cover;
-}
-
-#btnByeArt {
-  margin: auto;
-  width: 80%;
-}
-
-/*# sourceMappingURL=produits.css.map */
+/*# sourceMappingURL=confirmation.css.map */
