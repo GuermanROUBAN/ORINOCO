@@ -345,8 +345,16 @@ h1 {
   margin-bottom: 20px;
 }
 
-p {
-  color: green;
+#container_recap_commande {
+  display: flex;
+  flex-direction: column;
+  height: 55vh;
+  text-align: center;
+  justify-content: center;
+}
+#container_recap_commande span {
+  color: #bcce57;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=confirmation.css.map */

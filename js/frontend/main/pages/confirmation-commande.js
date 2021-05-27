@@ -31,12 +31,17 @@ console.log(totalPrix);
 let position = document.querySelector("#container_recap_commande");
 
 let structureConfirmationCommande = `
-<h2>Vous allez commander</h2>
+<h2>Félécitations! Vous avez finalisé votre commande ! </h2>
 <div class="recapCommande">
-	<p>Merci pour votre commande</p>
-	<p>Votre commande numéro: <span class="gras">${responseId}</span> a bien été prise en compte</p>
+	<br>
+	<p>Merci d'avoir choisi notre Orinoco</p>
+	<br>
+	<p>Le numéro de votre commande est le : <span class="gras">${responseId}</span></p>
+	<br>
 	<p>Le montant de votre commande est de : <span class="gras">${totalPrix}</span> Euro</p>
-	<p class="gras">Au plaisir de vous revoir</p>
+	<br>
+	<p class="gras">Au plaisir de vous revoir.</p>
+	<br>
 </div>
 `;
 

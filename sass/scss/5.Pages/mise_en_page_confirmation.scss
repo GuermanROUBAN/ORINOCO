@@ -1,1 +1,11 @@
-p {color:green;}
+#container_recap_commande{
+	display:flex;
+	flex-direction: column;
+	height: 55vh;
+	text-align: center;
+	justify-content: center;
+	span{
+		color:($colour-secondary);
+		font-weight: 700;
+	}
+}
