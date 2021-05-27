@@ -194,10 +194,10 @@ const AfficherFormulaireHTML = () => {
 			<div class="form-group">
 				<label for="email">Votre adresse e-mail</label><span id="emailManquant" class="infoChampManquant"></span>
 				<abbr title="ex: utilisateur@internet.com">*</abbr>
-				<input type="email" id="email" name="email" class="form-control" required />
+				<input type="email" id="email" name="email" class="form-control" placeholder="jp.heuxeux@internet.fr" required />
 			</div>
 
-			<div class="validationPanier">
+			<div class="validation_Panier">
 				<button id="btnValidationPanier" class="btnValidationPanier" name="btnValidationPanier">Valider la
 					commande</button>
 			</div>
@@ -275,7 +275,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 				} else {
 					dataChampManquantTexteVide("prenomManquant");
 				}
-				if (regExPrenomNom(formulaireValues.firstName) === false) {
+				if (regExPrenomNom(formulaireValues.lastName) === false) {
 					dataChampManquantTexte("nomManquant");
 				} else {
 					dataChampManquantTexteVide("nomManquant");

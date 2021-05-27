@@ -273,46 +273,13 @@ header img {
   color: #DB464B;
 }
 .formulaireCommande .validation_Panier {
-  display: flex;
   width: 100%;
-  margin: 20px;
+}
+.formulaireCommande .validation_Panier .btnValidationPanier {
+  margin: 20px 0px;
+  width: 100%;
 }
 .formulaireCommande .validation_Panier .btnValidationPanier a {
-  text-align: center;
-}
-
-.panier_somme_totale {
-  display: flex;
-  flex-wrap: wrap;
-  background: #5f4b26de;
-}
-.panier_somme_totale .recapitulatif_panier {
-  display: flex;
-  background: chartreuse;
-  width: 100%;
-  color: #bcce57;
-}
-.panier_somme_totale .recapitulatif_panier .resultat_panier_texte {
-  background: red;
-  width: 90%;
-}
-.panier_somme_totale .recapitulatif_panier .resultat_panier {
-  background: blue;
-  width: 20%;
-  text-align: center;
-  align-items: center;
-}
-.panier_somme_totale .annulation_panier {
-  display: flex;
-  background: yellow;
-  width: 100%;
-  justify-content: center;
-}
-.panier_somme_totale .annulation_panier .btnAnnulationPanier {
-  margin: 20px;
-  background: #DB464B;
-}
-.panier_somme_totale .annulation_panier .btnAnnulationPanier a {
   text-align: center;
 }
 

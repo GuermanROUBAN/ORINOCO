@@ -17,7 +17,7 @@
 	background: ($colour-carte);
 	.recapitulatif_panier{
 	display: flex;
-	background: chartreuse;
+
 	width: 100%;
 	color:($colour-secondary);
 		.resultat_panier_texte{
@@ -25,7 +25,7 @@
 		width:90%;	
 	}
 		.resultat_panier{
-		background: blue;
+		
 		width:20%;
 		text-align: center;
 		align-items: center;
@@ -34,7 +34,7 @@
 	}
 	.annulation_panier{
 		display: flex;
-		background: yellow;
+	
 		width: 100%;
 		justify-content: center;
 		.btnAnnulationPanier{
@@ -57,10 +57,34 @@
 	  max-width: 667px;
 	}
 	.panier-string{
-		background: chartreuse;
-		
-	}
-}
+		display: flex;
+	.panier-string-presentation{
+	
+		width:100%;	
+		& .panier-img{
+			width:30%;
+			border-radius: 25px;
+			object-fit: cover;}
+		& .panier-name{
+			width:30%;
+			text-align: center;
+			font-weight: 600;
+			margin:0 5px;}
+		& .panier-name{
+			width:30%;
+			text-align: center;
+			font-weight: 600;
+			margin:0 5px;}
+		&.panier-id{
+			width:30%;
+			overflow: hidden;
+			font-size: 1rem;		
+			}
+		}
+	.panier-string-calcul{
+		width:100%;	
+
+}}}
 
 
 @media screen and (min-width: 667px) 
