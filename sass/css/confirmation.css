@@ -357,4 +357,8 @@ h1 {
   font-weight: 700;
 }
 
+.nav_produit {
+  display: none;
+}
+
 /*# sourceMappingURL=confirmation.css.map */
