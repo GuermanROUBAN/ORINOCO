@@ -1,20 +1,19 @@
-
-// CREATION DE VARIABLES
-
+// ETAPE 0 - CREATION DE VARIABLES
+//-----------------------------------------------------------------------------------------------
 const results = document.getElementById('results');
 let teddies;
 
 // ETAPE 1 - API REQUEST
+//-----------------------------------------------------------------------------------------------
 const fetchApi = async () => {
 	teddies = await fetch('https://teddies-api.herokuapp.com/api/teddies/')
 		.then(res => res.json());
 	console.log(teddies, 'teddies'); // prouve que l'API a bien chargée les données
 };
-
 //fetchApi(); // ok on a bien recuperé l API
 
-// ETAPE 2 - CREATION D'UN MASQUE
-
+// ETAPE 2 - CREATION D'UN CONTENU HTML
+//-----------------------------------------------------------------------------------------------
 const affichageArticles = async () => {
 	await fetchApi();
 
@@ -51,10 +50,8 @@ const affichageArticles = async () => {
 			)).join('')//pour eviter les virgules
 	);
 };
-
 affichageArticles();
 
-
-
-//--------------------------
+// ETAPE 3 - CREATION DU SUIVI DU COMPTEUR PANIER
+//-----------------------------------------------------------------------------------------------
 compteurArtictlesPanier();

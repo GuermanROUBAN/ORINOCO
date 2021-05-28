@@ -1,21 +1,19 @@
-// ETAPE 1 - CONSULTATION DU PANIER
+// ETAPE 0 - CONSULTATION DU PANIER
 //--------------------------------------------------------------------------------
 // On va consulter le panier dans le LS
-
 let localPanier = JSON.parse(localStorage.getItem("panier"))
 //console.log(localPanier);
 //console.log(typeof localPanier); // Il s'agit d'un Objet avec des Arrays
-
 if (localPanier != null) {//si la clé existe
-	showPanier(); //charge la fonction avec le code HTML
+	chargementPanier(); //charge la fonction avec le code HTML
 }
 console.log(panier, 'panier search');
 
-// ETAPE 2 - 
+// ETAPE 1 - AFFICHAGE DU PANIER
 //--------------------------------------------------------------------------------
-function showPanier() {
+function chargementPanier() {
 
-	panier.innerHTML = (// charge le JS dans l'id HTML
+	panier.innerHTML = (// charge le JS dans HTML
 		localPanier //prend les infos dans le LS
 			// traitement de chaque element de l'array avec une fonction
 			.map((teddies, index) => (
@@ -51,12 +49,11 @@ function showPanier() {
 	// data-id = attribut data de l'input (avec nom id ) permet de saisir la donnée 'teddies'
 };
 
-// ETAPE 3 - 
+// ETAPE 2 - - CREATION DU SUIVI DU COMPTEUR PANIER
 //-----------------------------------------------------------------------------------------------
-
 compteurArtictlesPanier();
 
-// ETAPE 4 - CALCUL DES VALEURS DES INPUTS
+// ETAPE 3 - CALCUL DES VALEURS DES INPUTS
 //-----------------------------------------------------------------------------------------------
 // On s'adresse à tous les INPUTS
 let inputPanier = document.querySelectorAll('.qtyOfproduct');
@@ -66,9 +63,9 @@ let inputPanier = document.querySelectorAll('.qtyOfproduct');
 let inputPanierLength = inputPanier.length;
 for (let i = 0; i < inputPanierLength; i++) {
 	// Pour chaque INPUT on écoute un évenement et on applique la fonction
-	inputPanier[i].addEventListener("input", function () {
+	inputPanier[i].addEventListener("input", function calculValeurInput () {
 		let prix = parseInt(this.parentNode.children[0].innerHTML)
-		// parseInt => string to Integer (nombre)
+		// parseInt => string to Integer (à nombre)
 		// On recupere le prix
 		// this=input; parentNode=div panier-string-calcul; .children[0]=premier enfant liste .innerHTML=on accede à l'inner
 		let calculPrix = prix * this.value
@@ -78,7 +75,6 @@ for (let i = 0; i < inputPanierLength; i++) {
 		// element suivant de l'INPUT dans notre div affiche la nouvelle valeur de calculPrix
 
 		//LocalStorage UPDATE
-
 		// On Parse pour travailler dans l'objet
 		let localStoragePanierActualise = JSON.parse(localStorage.getItem('panier'));
 		// On appel le LS donne [{Tovar1},{Tovar2}]
@@ -109,10 +105,9 @@ for (let i = 0; i < inputPanierLength; i++) {
 	})
 }
 
-// ETAPE 4 - 
+// ETAPE 4 - CALCUL DES TOTAUX
 //-----------------------------------------------------------------------------------------------
 // Affichage du total dans l'panier.html
-
 function affichagePrixTotal() {
 
 	// Nouvel LS 
@@ -136,11 +131,9 @@ function affichagePrixTotal() {
 
 affichagePrixTotal();
 
-//-----------------------------------------------------------------------------------------------
 // ETAPE 5 - SUPRESSION DE L'ARTICLE
-
+//-----------------------------------------------------------------------------------------------
 function supprimerProduit(index) {
-
 	console.log("supprimer l'élément numéro", index);
 
 	//suppression produit du LS
@@ -152,16 +145,16 @@ function supprimerProduit(index) {
 	window.location.reload();
 }
 
+// ETAPE 6 - SUPRESSION DE TOUS LES ARTICLES DU PANIER
+//-----------------------------------------------------------------------------------------------
 function supprimerPanier() {
 	localStorage.clear();
 	window.location.reload();
 }
 
+// ETAPE 7 - FORMULAIRE DE COMMANDE
 //-----------------------------------------------------------------------------------------------
-// ETAPE 6 - FORMULAIRE DE COMMANDE 
-
 // Afficher formulaire HTML
-
 const AfficherFormulaireHTML = () => {
 	// selection de l'element du Dom pour le positionnement du formulaire
 	const injectionFormulaire = document.querySelector('#formulaire');
@@ -216,9 +209,9 @@ AfficherFormulaireHTML();
 // Selection du bouton pour envoi du formulaire
 const btnEnvoyerFormulaire = document.querySelector("#btnValidationPanier");
 
-
+// ETAPE 8 - Réécuperation des ID des produits dans le panier et enregistement dans la const aEnvoyer l.262
 //-----------------------------------------------------------------------------------------------
-// Recuperation de l'ID
+// Recuperation de l'ID des produits commandés pour l'envoyer au serveur lors de la requete POST
 let oursPanier = localStorage.getItem("panier")
 let ours = JSON.parse(oursPanier)
 let listeIdPanier = [];
@@ -229,11 +222,13 @@ if (ours != null) {
 		listeIdPanier.push(listeOursPanier._id)
 	}
 }
-
 //console.log(listeIdPanier, "listeIdPanier");
 
+
+// ETAPE 9 - CREATION D'UNE CLASSE
+//-----------------------------------------------------------------------------------------------
 // Création d'une classe pour fabriquer l'objet dans lequel iront
-// les valuses du formulaire
+// les valeurs du formulaire l.252 puis envoyées dans la const aEnvoyer l.261
 class Formulaire {
 	constructor() {
 		this.firstName = document.querySelector("#firstName").value;
@@ -244,7 +239,8 @@ class Formulaire {
 	}
 }
 
-// ETAPE 7 - addEventListener
+// ETAPE 10 - addEventListener
+//-----------------------------------------------------------------------------------------------
 btnEnvoyerFormulaire.addEventListener("click", (e) => {
 	e.preventDefault();
 	//console.log(localPanier, "panierTEST");
@@ -306,14 +302,13 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 	}
 })
 
+// ETAPE 11 - MISE EN PLACE D'UNE REQUETE POST
 //-----------------------------------------------------------------------------------------------
-// ETAPE 8 - 
-
 function envoieVersServeur(aEnvoyer) {
 	// Envoi de l'objet "aEnvoyer" vers le serveur
 
-	// 1.La fonction est hors de l'addEventListener
-	// 3.La fonction reprendra la valeur de aEnvoyer et la mettra dans JSON.stringify
+	// La fonction est hors de l'addEventListener
+	// La fonction reprendra la valeur de aEnvoyer et la mettra dans JSON.stringify
 
 	const commandePanier = fetch('https://teddies-api.herokuapp.com/api/teddies/order', {
 		method: "POST",
@@ -360,7 +355,7 @@ function envoieVersServeur(aEnvoyer) {
 }
 
 //-----------------------------------------------------------------------------------------------
-// ETAPE 9 - Mettre le contenu du local storage dans les champs du formulaire
+// ETAPE 12 - Mettre le contenu du local storage dans les champs du formulaire
 //Allez chercher la key formulaireValues et la mettre dans une vairable
 
 const dataLocalStorage = localStorage.getItem("formulaireValues");
@@ -370,17 +365,16 @@ const dataLocalStorage = localStorage.getItem("formulaireValues");
 const dataLocalStorageObjet = JSON.parse(dataLocalStorage);
 
 //fonction pour remplir les champs du formulaire avec les données du LS
-
-function remplirChampInputDepuisLocalStorage(input) {
+function chargementFormDataLs(input) {
 	if (dataLocalStorageObjet != null) {
 		document.querySelector(`#${input}`).value = dataLocalStorageObjet[input];
 	}
 };
-remplirChampInputDepuisLocalStorage("firstName");
-remplirChampInputDepuisLocalStorage("lastName");
-remplirChampInputDepuisLocalStorage("address");
-remplirChampInputDepuisLocalStorage("city");
-remplirChampInputDepuisLocalStorage("email");
+chargementFormDataLs("firstName");
+chargementFormDataLs("lastName");
+chargementFormDataLs("address");
+chargementFormDataLs("city");
+chargementFormDataLs("email");
 
 //console.log(dataLocalStorageObjet);
 

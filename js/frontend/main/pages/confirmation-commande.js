@@ -1,5 +1,3 @@
-
-
 compteurArtictlesPanier();
 
 
@@ -45,10 +43,3 @@ let structureConfirmationCommande = `
 
 // Injection HTML
 position.insertAdjacentHTML("afterbegin", structureConfirmationCommande);
-
-// Effacer tout le local storage sauf le formulaire
-function enleverClesDuLs(key) {
-	localStorage.removeItem(key);
-}
-//enleverClesDuLs("responseId");
-//enleverClesDuLs("panier");

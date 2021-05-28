@@ -1,34 +1,14 @@
+// FICHIER POUR LES FONCTIONS QUI REVIENNENT REGULIEREMENT DANS LA PROGRAMMATION.
 
-//-----------------------------------------------------------------------------------------------
 //AFFICHAGE DU PRIX
+//-----------------------------------------------------------------------------------------------
 // Affichage correct du prix avec la virgule
 nombreAvecVirgule = (x) => {
 	return x.toString().replace(/\B(?=(\d{2})+(?!\d))/g, ',')
 };
 
-function onLoadCartNumbers() {
-	let productNumbers = localStorage.getItem("cartNumbers");
-};
-
-function cartNumbers() {
-	let productNumbers = localStorage.getItem('cartNumbers');
-
-	productNumbers = parseInt(productNumbers);
-
-	if (productNumbers) {
-		localStorage.setItem('cartNumbers', productNumbers + 1);
-		document.querySelector('.nav_panier span').textContent = productNumbers + 1;
-	} else {
-		localStorage.setItem('cartNumbers,1');
-		document.querySelector('.nav_panier span').textContent = 1;
-	}
-
-};
-
-
 //-----------------------------------------------------------------------------------------------
 //COMPTE NOMBRE ARTICLES DANS PANIER
-// 
 function compteurArtictlesPanier() {
 	// On va chercher le LS
 	let localPanier = JSON.parse(localStorage.getItem("panier"));

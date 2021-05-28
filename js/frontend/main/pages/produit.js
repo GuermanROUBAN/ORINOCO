@@ -1,6 +1,5 @@
+// ETAPE 0 - RECUPERATION DE L'ID
 //-----------------------------------------------------------------------------------------------
-// ETAPE 1 - RECUPERATION DE L'ID
-
 const queryString_url_id = window.location.search;
 //console.log(queryString_url_id);
 
@@ -9,9 +8,8 @@ const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
 //console.log(id, 'id');	
 
-//-----------------------------------------------------------------------------------------------
 // ETAPE 2 - API REQUEST
-
+//-----------------------------------------------------------------------------------------------
 const fetchProduit = async () => {
 	donnees = await fetch(`https://teddies-api.herokuapp.com/api/teddies/${id}`)
 		.then(res => res.json());
@@ -21,16 +19,15 @@ const fetchProduit = async () => {
 	injectionHtmlProduit.innerHTML = structureHtmlProduit(donnees);
 	//on envoi le resultat dans "selected_article"
 };
-
 //fetchProduit(); // ok on a bien recuperé l API
+
 const afficheProduit = async () => {
 	await fetchProduit();
 }
 afficheProduit();
 
-
+// ETAPE 3 - LE CHARGEMENT DU CONTENU HTML
 //-----------------------------------------------------------------------------------------------
-// ETAPE 3 - LE CHARGEMENT DU HTML
 // Mise en place du HTML qui sera chargé dans "selected_article"
 function structureHtmlProduit(produit) {
 	let colors = affichageOptions(produit.colors,);
@@ -56,8 +53,8 @@ function structureHtmlProduit(produit) {
 const injectionHtmlProduit = document.getElementById("selected_article");
 //console.log(injectionHtmlProduit);
 
-//-----------------------------------------------------------------------------------------------
 // ETAPE 4 - LA SELECTE BOX
+//-----------------------------------------------------------------------------------------------
 // créer une fonction qui va générer l'ensemble des options, avec ces dernières passées en paramètre
 function affichageOptions(options) {
 	//console.log(options)// déclarer une variable vide qui va contenir le code HTML
@@ -73,10 +70,12 @@ function affichageOptions(options) {
 	return varHTMLvide;
 }
 
-
-
+// ETAPE 6 -  - CREATION DU SUIVI DU COMPTEUR PANIER
 //-----------------------------------------------------------------------------------------------
+compteurArtictlesPanier();// controle combien d'articles sont presents dans le panier au chargement de la page
+
 // ETAPE 5 - CREATION LOCAL STORAGE
+//-----------------------------------------------------------------------------------------------
 //localStorage.setItem("clé","valeur")
 //localStorage.getItem("clé")
 //localStorage.clear();
@@ -84,9 +83,6 @@ function affichageOptions(options) {
 //JSON.parse(string); // a l'inverse transforme un string en objet
 
 // Ajout de l'objet produit au click
-
-compteurArtictlesPanier();// controle combien d'articles sont presents dans le panier au chargement de la page
-
 btnByeArt.onclick = () => {
 
 	let produit =
@@ -102,7 +98,6 @@ btnByeArt.onclick = () => {
 	}
 
 	// Controle si le panier existe dans le LS
-
 	let panier = localStorage.getItem('panier');
 	console.log(panier); // donne null
 
@@ -130,6 +125,3 @@ btnByeArt.onclick = () => {
 	popupConf();//affiche la fenetre popup (depuis tools.js)
 	//compteurArtictlesPanier();//affiche le nombre d'articles dans le panier (depuis tools.js)
 }
-//-----------------------------------------------------------------------------------------------
-
-
