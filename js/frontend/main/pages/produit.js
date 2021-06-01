@@ -21,14 +21,14 @@ const fetchProduit = async () => {
 };
 //fetchProduit(); // ok on a bien recuperé l API
 
-const afficheProduit = async () => {
+const afficheProduit = async() => {
 	await fetchProduit();
 }
 afficheProduit();
 
 // ETAPE 3 - LE CHARGEMENT DU CONTENU HTML
 //-----------------------------------------------------------------------------------------------
-// Mise en place du HTML qui sera chargé dans "selected_article"
+// Mise en place du HTML qui sera chargé dans produit.html "selected_article"
 function structureHtmlProduit(produit) {
 	let colors = affichageOptions(produit.colors,);
 	return `
@@ -87,7 +87,7 @@ btnByeArt.onclick = () => {
 
 	let produit =
 	{
-		name: article_name.textContent,
+		name: article_nam.textContent,
 		_id: article_id.textContent,
 		description: article_description.textContent,
 		option: article_option.value,
