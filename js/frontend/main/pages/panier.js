@@ -166,28 +166,28 @@ const AfficherFormulaireHTML = () => {
 			<legend>Merci de bien vouloir remplir notre formulaire</legend>
 			<div class="form-group">
 				<label for="firstName">Prénom</label> <span id="prenomManquant" class="infoChampManquant"></span> <abbr title="Merci de saisir ici votre prénom">*</abbr>
-				<input type="text" id="firstName" name="fistName" value="" class="form-control" placeholder="Jean-Pierre" required>
+				<input type="text" id="firstName" name="fistName" value="" class="form-control" placeholder="votre prénom" required>
 			</div>
 
 			<div class="form-group">
 				<label for="lastName">Nom</label> <span id="nomManquant" class="infoChampManquant"></span> <abbr title="Merci de saisir ici votre nom">*</abbr>
-				<input type="text" id="lastName" name="lastName" class="form-control" placeholder="Heureux" required>
+				<input type="text" id="lastName" name="lastName" class="form-control" placeholder="votre nom" required>
 			</div>
 
 			<div class="form-group">
 				<label for="address">Adresse</label><span id="adresseManquant" class="infoChampManquant"></span><abbr title="Merci de saisir ici votre adresse">*</abbr>
-				<input type="text" id="address" name="address" class="form-control" placeholder="1 rue de Paix - 75000" required>
+				<input type="text" id="address" name="address" class="form-control" placeholder="votre adresse" required>
 			</div>
 
 			<div class="form-group">
 				<label for="city">City</label><span id="villeManquant" class="infoChampManquant"></span><abbr title="Merci de saisir ici votre ville">*</abbr>
-				<input type="text" id="city" name="city" class="form-control" placeholder="Paris" required>
+				<input type="text" id="city" name="city" class="form-control" placeholder="votre ville" required>
 			</div>
 
 			<div class="form-group">
-				<label for="email">Votre adresse e-mail</label><span id="emailManquant" class="infoChampManquant"></span>
+				<label for="email">E-mail</label><span id="emailManquant" class="infoChampManquant"></span>
 				<abbr title="ex: utilisateur@internet.com">*</abbr>
-				<input type="email" id="email" name="email" class="form-control" placeholder="jp.heuxeux@internet.fr" required />
+				<input type="email" id="email" name="email" class="form-control" placeholder="votre adresse@email.fr" required />
 			</div>
 
 			<div class="validation_Panier">
@@ -252,7 +252,7 @@ btnEnvoyerFormulaire.addEventListener("click", (e) => {
 			const formulaireValues = new Formulaire();
 			
 			// Controle la validité du formulaire avant l'envoi dans le LS
-			if (regExPrenomNom(formulaireValues.firstName) && (regExPrenomNom(formulaireValues.lastName) && regExAdresse(formulaireValues.address) && regExVille(formulaireValues.city) && regExEmail(formulaireValues.email))) {
+			if (regExPrenomNom(formulaireValues.firstName) && regExPrenomNom(formulaireValues.lastName) && regExAdresse(formulaireValues.address) && regExVille(formulaireValues.city) && regExEmail(formulaireValues.email)) {
 				// Mettre l'objet "formulaireValues" dans LS
 				localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
 				//localStorage.setItem("prixTotal", JSON.stringify(compteurPrix));

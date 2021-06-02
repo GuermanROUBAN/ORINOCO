@@ -87,7 +87,7 @@ btnByeArt.onclick = () => {
 
 	let produit =
 	{
-		name: article_nam.textContent,
+		name: article_name.textContent,
 		_id: article_id.textContent,
 		description: article_description.textContent,
 		option: article_option.value,
