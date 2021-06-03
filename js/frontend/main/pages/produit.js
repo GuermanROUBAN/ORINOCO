@@ -117,24 +117,21 @@ btnByeArt.onclick = () => {
 		// Prende la valeur du panier LS et parse pour ajouter un nouveau produit
 		let parsedPanier = JSON.parse(localStorage.getItem('panier'));
 		let flag = false; // On confirme qu'il n'y a pas ca		
-		for (let elem of parsedPanier) { // On verifie
+		for (let elem of parsedPanier) { // On verifie _id et l'option
 			if (elem._id == produit._id && elem.option == produit.option) {
-				elem.qty++;
+				elem.qty++;	// si identique alors le flag devient true
 				flag = true;
-				elem.totalprice = (elem.qty * parseInt(elem.price))+' €'; // string en number
-				localStorage.setItem('panier', JSON.stringify(parsedPanier));
+				elem.totalprice = (elem.qty * parseInt(elem.price))+' €'; //  string en number
+				localStorage.setItem('panier', JSON.stringify(parsedPanier)); // on actualise le panier
 			}
 		}
 		if (flag === false) {
-					// ajouter un produit dans l'array
+		// ajouter un produit dans l'array
 		parsedPanier.push(produit);
 		// mettre à jour le LS
 		localStorage.setItem('panier', JSON.stringify(parsedPanier))
 		}
-
-
 	}
-
 	popupConf();//affiche la fenetre popup (depuis tools.js)
 	//compteurArtictlesPanier();//affiche le nombre d'articles dans le panier (depuis tools.js)
 }
