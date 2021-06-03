@@ -25,9 +25,10 @@ function chargementPanier() {
 						<div class="panier-string">
 							<div class="panier-string-presentation">
 								<img class="panier-img" src="${teddies.imageUrl}" />
-								div>												
+								<div class ="name_and_option">												
 								<h2 class="panier-name">${teddies.name}</h2>
 								<p class="panier-option">${teddies.option}</p>
+								</div>
 								<!--<h2 class="panier-id">${teddies._id}</h2>-->
 								<p class="panier-description">${teddies.description}</p>
 								

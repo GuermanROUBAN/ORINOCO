@@ -22,6 +22,7 @@
 		color:($colour-secondary);
 		
 	}
+	
 
 	.article-description{
 		margin: 10px;
@@ -56,21 +57,13 @@
 			width:30%;
 			border-radius: 25px;
 			object-fit: cover;}
-		& .panier-name{
-			width:30%;
+		& .name_and_option{
+			flex-wrap: wrap;
+			flex-direction:column ;
 			text-align: center;
-			font-weight: 600;
-			margin:0 5px;}
-		& .panier-name{
-			width:30%;
-			text-align: center;
-			font-weight: 600;
-			margin:0 5px;}
-		&.panier-id{
-			width:30%;
-			overflow: hidden;
-			font-size: 1rem;		
-			}
+			margin:10px;
+		}
+
 		}
 	.panier-string-calcul{
 		display: flex;
