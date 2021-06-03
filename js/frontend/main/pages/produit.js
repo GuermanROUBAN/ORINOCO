@@ -30,7 +30,7 @@ afficheProduit();
 //-----------------------------------------------------------------------------------------------
 // Mise en place du HTML qui sera chargé dans produit.html "selected_article"
 function structureHtmlProduit(produit) {
-	let colors = affichageOptions(produit.colors,);
+	let colors = affichageOptions(produit.colors);
 	return `
 	<div id="selected_article">
 				<h3 class="article_name">Nom du produit:</h3><p><span id="article_name">${produit.name}</span></p>
@@ -96,7 +96,7 @@ btnByeArt.onclick = () => {
 		imageUrl: article_img.src,
 		qty: 1
 	}
-
+	
 	// Controle si le panier existe dans le LS
 	let panier = localStorage.getItem('panier');
 	console.log(panier); // donne null
@@ -116,10 +116,23 @@ btnByeArt.onclick = () => {
 	else {
 		// Prende la valeur du panier LS et parse pour ajouter un nouveau produit
 		let parsedPanier = JSON.parse(localStorage.getItem('panier'));
-		// ajouter un produit dans l'array
+		let flag = false; // On confirme qu'il n'y a pas ca		
+		for (let elem of parsedPanier) { // On verifie
+			if (elem._id == produit._id && elem.option == produit.option) {
+				elem.qty++;
+				flag = true;
+				elem.totalprice = (elem.qty * parseInt(elem.price))+' €'; // string en number
+				localStorage.setItem('panier', JSON.stringify(parsedPanier));
+			}
+		}
+		if (flag === false) {
+					// ajouter un produit dans l'array
 		parsedPanier.push(produit);
 		// mettre à jour le LS
 		localStorage.setItem('panier', JSON.stringify(parsedPanier))
+		}
+
+
 	}
 
 	popupConf();//affiche la fenetre popup (depuis tools.js)

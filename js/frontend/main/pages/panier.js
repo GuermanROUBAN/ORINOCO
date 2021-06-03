@@ -24,21 +24,20 @@ function chargementPanier() {
 					<div class="panier-article">
 						<div class="panier-string">
 							<div class="panier-string-presentation">
-								<img class="panier-img" src="${teddies.imageUrl}" />												
-								<h2 class="panier-name">
-
-								${teddies.name}</h2>
+								<img class="panier-img" src="${teddies.imageUrl}" />
+								div>												
+								<h2 class="panier-name">${teddies.name}</h2>
+								<p class="panier-option">${teddies.option}</p>
 								<!--<h2 class="panier-id">${teddies._id}</h2>-->
-								<p class="panier-description">
-
-								${teddies.description}</p>
+								<p class="panier-description">${teddies.description}</p>
+								
 							</div>
 						<div class="panier-string-calcul">
 								<p class="calcul-price">
 								${teddies.price}</p>
 								<a href="/html/produits.html?id=${teddies._id}"></a>
 								<input type="number" data-id="${teddies._id}" class="qtyOfproduct" value="${teddies.qty}" style="width:40px" min="1">
-								<p class="calcul-price-sum">${teddies.price}</p>
+								<p class="calcul-price-sum">${teddies.totalprice}</p>
 								<button id="btnDeletArt" onclick="supprimerProduit(${index})" class="btnDeletArt">Supprimer</button>
 							</div>
 						</div>
